@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/sales-event.schema.json",
+  "title": "E-commerce Behavior Event",
+  "description": "Event contract for 2019-Oct.csv. Supported event types: view, cart, purchase.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "run_id",
+    "original_event_time",
+    "stream_event_time",
+    "event_type",
+    "product_id",
+    "category_id",
+    "category_code",
+    "brand",
+    "price",
+    "user_id",
+    "user_session"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier generated for each event."
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identifier of the producer execution."
+    },
+    "original_event_time": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "Original event timestamp in UTC."
+    },
+    "stream_event_time": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "Timestamp when the event is prepared for streaming, in UTC."
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "view",
+        "cart",
+        "purchase"
+      ]
+    },
+    "product_id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "category_id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "category_code": {
+      "type": ["string", "null"]
+    },
+    "brand": {
+      "type": ["string", "null"]
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0
+    },
+    "user_id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "user_session": {
+      "type": ["string", "null"]
+    }
+  }
+}

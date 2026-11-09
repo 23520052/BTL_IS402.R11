@@ -1,0 +1,54 @@
+================================================================================
+TV3 - BÁO CÁO KIỂM THỬ TÍNH ĐÚNG ĐẮN LOGIC KỲ VỌNG (validate_against_sample.py)
+Thời gian thực thi: 2026-11-09 16:04:20
+================================================================================
+
+[TEST SUITE 1] Kiểm tra hàm norm_brand(b)
+  [PASS] Brand giá trị None                            | Input: None         -> Output: 'unknown'
+  [PASS] Brand chuỗi rỗng                              | Input: ''           -> Output: 'unknown'
+  [PASS] Brand chuỗi toàn khoảng trắng                 | Input: '   '        -> Output: 'unknown'
+  [PASS] Brand chuỗi chữ thường 'null'                 | Input: 'null'       -> Output: 'unknown'
+  [PASS] Brand chuỗi chữ hoa 'NULL'                    | Input: 'NULL'       -> Output: 'unknown'
+  [PASS] Brand chuỗi 'nan' (NaN từ pandas/numpy)       | Input: 'nan'        -> Output: 'unknown'
+  [PASS] Brand chuỗi 'none'                            | Input: 'none'       -> Output: 'unknown'
+  [PASS] Brand hợp lệ thường                           | Input: 'samsung'    -> Output: 'samsung'
+  [PASS] Brand có khoảng trắng đầu cuối và chữ hoa     | Input: '  Apple  '  -> Output: 'apple'
+  [PASS] Brand toàn chữ hoa                            | Input: 'XIAOMI'     -> Output: 'xiaomi'
+
+[TEST SUITE 2] Kiểm tra hàm window_end(ts, secs)
+  [PASS] Mốc đầu cửa sổ 30s (00.000s)                  | secs=30 -> 2026-11-12 10:00:30
+  [PASS] Giữa cửa sổ 30s (15.500s)                     | secs=30 -> 2026-11-12 10:00:30
+  [PASS] Cận trên cửa sổ 30s (29.999s)                 | secs=30 -> 2026-11-12 10:00:30
+  [PASS] Mốc đầu cửa sổ kế tiếp (30.000s)              | secs=30 -> 2026-11-12 10:01:00
+  [PASS] Mốc đầu cửa sổ 60s (00.000s)                  | secs=60 -> 2026-11-12 10:01:00
+  [PASS] Cận trên cửa sổ 60s (59.999s)                 | secs=60 -> 2026-11-12 10:01:00
+  [PASS] Mốc đầu cửa sổ 60s kế tiếp (00.000s)          | secs=60 -> 2026-11-12 10:02:00
+
+[TEST SUITE 3] Kiểm tra tính kỳ vọng trên database/mock_events.jsonl
+  [PASS] Tổng số sự kiện n=12 (Thực tế: 12)
+  [PASS] Event count 'cart' = 1 (Thực tế: 1)
+  [PASS] Event count 'remove_from_cart' = 1 (Thực tế: 1)
+  [PASS] Event count 'view' = 3 (Thực tế: 3)
+  [PASS] Event count 'purchase' = 7 (Thực tế: 7)
+  [PASS] Tổng doanh thu purchase = 1950.0 (Thực tế: 1950.00)
+  [PASS] Brand apple: 2 đơn, 1200.0 rev (Thực tế: [2, 1200.0])
+  [PASS] Brand huawei: 1 đơn, 0.0 rev (Thực tế: [1, 0.0])
+  [PASS] Brand samsung: 1 đơn, 350.0 rev (Thực tế: [1, 350.0])
+  [PASS] Brand unknown: 2 đơn, 200.0 rev (Thực tế: [2, 200.0])
+  [PASS] Brand xiaomi: 1 đơn, 200.0 rev (Thực tế: [1, 200.0])
+  [PASS] Số lượng cửa sổ 30s = 6 (Thực tế: 6)
+  [PASS] Số lượng cửa sổ 1m = 5 (Thực tế: 5)
+  [PASS] Cờ nhận diện stream_event_time = True
+
+[TEST SUITE 4] Kiểm tra tính kỳ vọng trên file hợp đồng mẫu sample_events.json
+  [PASS] Tổng số sự kiện hợp đồng = 50 (Thực tế: 50)
+  [PASS] Tổng phân phối loại sự kiện = 50 (Thực tế: 50)
+  [PASS] Khớp số purchase: by_type=16 vs by_brand=16
+  [PASS] Khớp doanh thu purchase: rev=4975.78 vs brand_rev=4975.78
+  [PASS] Cờ stream_event_time trong sample_events.json = True
+
+================================================================================
+TỔNG KẾT: Đã hoàn thành 36/36 test cases thành công (100%).
+KẾT LUẬN: Logic tính toán kỳ vọng của validate_against_sample.py hoàn toàn chuẩn xác,
+sẵn sàng đối chiếu tự động khi TV1 và TV2 gửi run integration-01 thật.
+================================================================================

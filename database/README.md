@@ -15,6 +15,8 @@ Tài liệu quản lý cơ sở dữ liệu và bàn giao kỹ thuật cho nhóm
 
 ## 2. Hợp đồng dữ liệu (Data Contract – Freeze 08/11/2026)
 > *Quy ước bất biến: Không tự ý đổi tên bảng, tên cột, kiểu dữ liệu nếu chưa có sự đồng thuận của TV2 + TV4.*
+>
+> ⚠️ **Lưu ý đặc biệt cho TV2 (Huy - ASA):** Tên các cột trong câu truy vấn của Azure Stream Analytics (ASA) (ví dụ: `SELECT ... AS window_end, run_id, event_type, event_count, revenue ...`) phải khớp **chính xác 100%** với tên các cột ở bảng SQL dưới đây. ASA ghi sai tên cột sẽ báo lỗi mapping schema và không ghi được dữ liệu vào database!
 
 * **Bảng 1:** `dbo.event_metrics_30s`
   - `window_end` (`DATETIME2`, NOT NULL): Giờ UTC kết thúc cửa sổ (System.Timestamp() từ ASA).
@@ -58,5 +60,9 @@ Tài liệu quản lý cơ sở dữ liệu và bàn giao kỹ thuật cho nhóm
 | **09/11** | Kiểm tra quyền chỉ đọc của `pbi_reader` (SELECT OK, DELETE Denied) | **Hoàn thành** | `12_pbi_reader_readonly.png` |
 | **09/11** | Làm mới dữ liệu mock `seed_data.sql` (cửa sổ thời gian hiện tại) & kiểm thử `sql_validation.sql` | **Hoàn thành** | Query validation test passed |
 | **09/11** | Đối chiếu Data Contract với TV1 (`data_contract.json`, `sample_events.json`) | **Hoàn thành** | Schema freeze, tương thích 100% |
-| **09/11** | Tạo Blob Storage Account (`stsalesgr03tram01`) & container `benchmark-data` | **Hoàn thành** *(Vượt tiến độ 10/11)* | `09_storage_container.png` |
-| **10/11** | Bàn giao kết nối ghi cho TV2 (ASA) & script test quyền ghi `asa_writer` | Đúng tiến độ | Theo plan |
+| **09/11** | Tạo Blob Storage Account (`stsalesgr03tram01`) & container `benchmark-data` | **Hoàn thành** *(Vượt tiến độ)* | `09_storage_container.png` |
+| **10/11** | Kiểm thử quyền ghi `asa_writer` (`test_asa_writer.py`, INSERT OK, DELETE Denied) | **Hoàn thành** | `13_asa_writer_test.txt` |
+| **10/11** | Bàn giao thông số kết nối và lưu ý mapping schema cho TV2 (Huy - ASA) | **Hoàn thành** | Đã gửi thông số & ghi chú README |
+| **10/11** | Bổ sung minh chứng phân quyền người dùng cơ sở dữ liệu | **Hoàn thành** | `33_db_users.png` |
+| **10/11** | Soạn thảo cơ sở lý thuyết báo cáo đồ án (Mục 1 đến Mục 4) | **Hoàn thành** | `docs/project_report/03_database_performance.md` |
+| **11/11** | Nghiệm thu output ASA của TV2 và hoàn thiện chuẩn bị Sprint 1 | Đang chờ TV2 phát luồng | Theo plan |

@@ -1,0 +1,7 @@
+=== KIỂM THỬ QUYỀN TRUY CẬP ASA_WRITER - 2026-11-09 07:40:25 UTC ===
+Máy chủ: sqlsrv-sales-gr03-tram01.database.windows.net | Cơ sở dữ liệu: salesdb | Tài khoản: asa_writer
+[*] Phương thức kết nối: Microsoft SQLCMD Utility.
+[+] INSERT thành công 1 dòng thử nghiệm (run_id='tv3-writetest').
+[+] SELECT xác nhận dòng vừa ghi: 2026-11-09 07:40:28.0000000,tv3-writetest,view,1,0.0
+[+] CHỨNG MINH QUYỀN TỐI THIỂU: Lệnh DELETE bị từ chối thành công (Msg 229, Level 14, State 5, Server sqlsrv-sales-gr03-tram01, Line 1 The DELETE permission was denied on the object 'event_metrics_30s', database 'salesdb', schema 'dbo'.).
+[*] KẾT LUẬN: User 'asa_writer' hoạt động đúng thiết kế (GHI ĐƯỢC, ĐỌC ĐƯỢC, KHÔNG XÓA ĐƯỢC).

@@ -53,5 +53,10 @@ Tài liệu quản lý cơ sở dữ liệu và bàn giao kỹ thuật cho nhóm
 | **08/11** | Khởi tạo Budget alert, Usage & Quotas | **Hoàn thành** | `01_budget_alert.png`, `02_usage_quotas.png` |
 | **08/11** | Dựng Azure SQL (`salesdb`, East Asia, Basic 5 DTU) | **Hoàn thành** | `03_sql_overview.png`, `04_sql_compute_tier.png` |
 | **08/11** | Chạy Schema, Index, tạo User (`asa_writer`, `pbi_reader`), nạp Seed data | **Hoàn thành** | `06_tables_created.png`, `07_seed_check.png` |
-| **09/11** | Mở Firewall & bàn giao kết nối cho TV4 (Power BI) | **Đã sẵn sàng** | Chờ TV4 gửi IP (`05_firewall_rules.png`) |
-| **10/11** | Bàn giao kết nối ghi cho TV2 (ASA) & tạo Blob Container | Đúng tiến độ | Theo plan |
+| **08/11** | Phân quyền thành viên nhóm Contributor trên RG (IAM) | **Hoàn thành** | `08_iam_role_assignments.png` |
+| **09/11** | Mở Firewall IP cho thành viên nhóm (TV3, TV4, TV2) | **Hoàn thành** | `05_firewall_rules.png` |
+| **09/11** | Kiểm tra quyền chỉ đọc của `pbi_reader` (SELECT OK, DELETE Denied) | **Hoàn thành** | `12_pbi_reader_readonly.png` |
+| **09/11** | Làm mới dữ liệu mock `seed_data.sql` (cửa sổ thời gian hiện tại) & kiểm thử `sql_validation.sql` | **Hoàn thành** | Query validation test passed |
+| **09/11** | Đối chiếu Data Contract với TV1 (`data_contract.json`, `sample_events.json`) | **Hoàn thành** | Schema freeze, tương thích 100% |
+| **09/11** | Tạo Blob Storage Account (`stsalesgr03tram01`) & container `benchmark-data` | **Hoàn thành** *(Vượt tiến độ 10/11)* | `09_storage_container.png` |
+| **10/11** | Bàn giao kết nối ghi cho TV2 (ASA) & script test quyền ghi `asa_writer` | Đúng tiến độ | Theo plan |

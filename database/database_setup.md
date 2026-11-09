@@ -12,7 +12,7 @@
 | Tier | Basic (5 DTU) [Sprint 1] -> nâng Standard S1 (20 DTU) [T7 Benchmark], backup redundancy: LRS |
 | Xác thực | SQL authentication; admin `sqladmin_gr03`; user `asa_writer` (INSERT/SELECT), `pbi_reader` (SELECT) |
 | Network | Public endpoint + firewall theo IP; "Allow Azure services" = Yes |
-| Storage account / container | [CHƯA TẠO - T4] / `benchmark-data` (private, LRS) |
+| Storage account / container | `stsalesgr03tram01` / `benchmark-data` (private, LRS) |
 
 ## 2. Lý do chọn (ngắn)
 - DTU Standard thay vì serverless: không tự ngủ ⇒ ASA/Power BI/benchmark ổn định, chi phí theo ngày dễ dự đoán.

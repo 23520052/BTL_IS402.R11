@@ -1,0 +1,64 @@
+{
+    "dataset": {
+        "file_name": "2019-Oct.csv",
+        "file_path": "/kaggle/input/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store/2019-Oct.csv",
+        "file_size_bytes": 5668612855,
+        "file_size_GB": 5.6686,
+        "file_size_GiB": 5.2793
+    },
+    "processing": {
+        "method": "pandas_read_csv_chunked",
+        "chunksize": 500000,
+        "total_chunks": 85,
+        "total_rows": 42448764,
+        "elapsed_seconds": 201.887,
+        "completed_at_utc": "2026-11-07T14:18:12.725176+00:00"
+    },
+    "event_type_distribution": {
+        "cart": 926516,
+        "purchase": 742849,
+        "view": 40779399
+    },
+    "null_counts": {
+        "event_time": 0,
+        "event_type": 0,
+        "product_id": 0,
+        "category_id": 0,
+        "category_code": 13515609,
+        "brand": 6117080,
+        "price": 0,
+        "user_id": 0,
+        "user_session": 2
+    },
+    "event_time": {
+        "min_utc": "2019-10-01T00:00:00+00:00",
+        "max_utc": "2019-10-31T23:59:59+00:00"
+    },
+    "distinct_counts": {
+        "brand": {
+            "value": 3444,
+            "method": "exact_hash_distinct",
+            "approximate": false
+        },
+        "product_id": {
+            "value": 165919,
+            "method": "KMV",
+            "approximate": true,
+            "k": 16384
+        },
+        "user_id": {
+            "value": 3026778,
+            "method": "KMV",
+            "approximate": true,
+            "k": 16384
+        }
+    },
+    "notes": [
+        "CSV was processed in chunks; the entire file was not loaded into RAM.",
+        "Null counts and event type counts are exact.",
+        "Timestamp min/max are calculated from valid parsed timestamps.",
+        "Distinct counts use KMV approximate estimation when cardinality exceeds K.",
+        "Exact hash distinct counts are subject to negligible hash collision risk.",
+        "Purchase represents a purchase event, not an order."
+    ]
+}

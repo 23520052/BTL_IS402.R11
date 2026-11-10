@@ -1,0 +1,16 @@
+2026-11-10 13:01:20 | INFO | Starting Producer MVP
+2026-11-10 13:01:20 | INFO | Input file: /kaggle/input/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store/2019-Oct.csv
+2026-11-10 13:01:20 | INFO | Event Hub: sales-events
+2026-11-10 13:01:20 | INFO | Run ID: kaggle-mvp-100
+2026-11-10 13:01:20 | INFO | Maximum events: 100
+2026-11-10 13:01:20 | INFO | Batch event limit: 50
+2026-11-10 13:01:20 | INFO | CSV chunk size: 10000
+2026-11-10 13:01:23 | INFO | Batch sent successfully | events=50
+2026-11-10 13:01:23 | INFO | Batch sent successfully | events=50
+2026-11-10 13:01:23 | INFO | ========== PRODUCER SUMMARY ==========
+2026-11-10 13:01:23 | INFO | Events read and prepared: 100
+2026-11-10 13:01:23 | INFO | Events sent successfully: 100
+2026-11-10 13:01:23 | INFO | Batches sent: 2
+2026-11-10 13:01:23 | INFO | Elapsed time: 1.43 seconds
+2026-11-10 13:01:23 | INFO | Average throughput: 69.80 events/second
+2026-11-10 13:01:23 | INFO | Producer MVP finished

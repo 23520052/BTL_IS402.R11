@@ -1,2 +1,2 @@
-pandas
-azure-eventhub
+pandas==2.3.3
+azure-eventhub==5.15.1

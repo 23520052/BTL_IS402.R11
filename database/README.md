@@ -65,4 +65,8 @@ Tài liệu quản lý cơ sở dữ liệu và bàn giao kỹ thuật cho nhóm
 | **10/11** | Bàn giao thông số kết nối và lưu ý mapping schema cho TV2 (Huy - ASA) | **Hoàn thành** | Đã gửi thông số & ghi chú README |
 | **10/11** | Bổ sung minh chứng phân quyền người dùng cơ sở dữ liệu | **Hoàn thành** | `33_db_users.png` |
 | **10/11** | Soạn thảo cơ sở lý thuyết báo cáo đồ án (Mục 1 đến Mục 4) | **Hoàn thành** | `docs/project_report/03_database_performance.md` |
+| **11/11** | Hoàn thiện tài liệu hướng dẫn tái tạo cơ sở dữ liệu (`database_setup.md`) | **Hoàn thành** | `database/database_setup.md` |
+| **11/11** | Khởi tạo SQL Server Local trên Docker (`sqlbench`, `salesbench`) chuẩn bị benchmark 14/11 | **Hoàn thành** *(Vượt tiến độ)* | `35_local_docker.png` |
 | **11/11** | Nghiệm thu output ASA của TV2 và hoàn thiện chuẩn bị Sprint 1 | Đang chờ TV2 phát luồng | Theo plan |
+| **12/11** | Kiểm thử logic tính toán kỳ vọng của `validate_against_sample.py` bằng file giả lập | **Hoàn thành** *(Vượt tiến độ)* | `14b_validate_logic_test.txt`, `validation_mock_dryrun.txt` |
+| **12/11** | Đối chiếu run tích hợp `integration-01` (10,000 events) | Đang chờ TV1 gửi file và TV2 hoàn tất luồng ASA | Chờ TV1 & TV2 |

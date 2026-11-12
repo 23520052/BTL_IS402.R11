@@ -1,0 +1,38 @@
+Run: test-mock-01 | events trong file: 12
+
+[CHẾ ĐỘ DRY-RUN / KIỂM THỬ LOGIC KỲ VỌNG - KHÔNG KẾT NỐI DB]
+
+[1] Kỳ vọng số event theo loại (bảng dbo.event_metrics_30s):
+  cart                 :          1
+  purchase             :          7
+  remove_from_cart     :          1
+  view                 :          3
+  TỔNG event           :         12
+
+[2] Kỳ vọng tổng revenue purchase (bảng dbo.event_metrics_30s):
+  revenue purchase     :       1,950.00
+
+[3] Kỳ vọng purchase theo brand (bảng dbo.brand_sales_1m):
+  apple                :      2 purchases | revenue =     1,200.00
+  huawei               :      1 purchases | revenue =         0.00
+  samsung              :      1 purchases | revenue =       350.00
+  unknown              :      2 purchases | revenue =       200.00
+  xiaomi               :      1 purchases | revenue =       200.00
+
+[4] Kỳ vọng tổng hợp theo từng cửa sổ thời gian:
+  * Số cửa sổ 30s (event_metrics_30s): 6 cửa sổ
+    2026-11-12 10:00:30 UTC | cart               :     1 events
+    2026-11-12 10:00:30 UTC | purchase           :     4 events
+    2026-11-12 10:00:30 UTC | remove_from_cart   :     1 events
+    2026-11-12 10:00:30 UTC | view               :     1 events
+    2026-11-12 10:01:00 UTC | purchase           :     3 events
+    2026-11-12 10:01:30 UTC | view               :     2 events
+
+  * Số cửa sổ 1m (brand_sales_1m): 5 cửa sổ-brand
+    2026-11-12 10:01:00 UTC | apple              :   2 purchases |   1,200.00
+    2026-11-12 10:01:00 UTC | huawei             :   1 purchases |       0.00
+    2026-11-12 10:01:00 UTC | samsung            :   1 purchases |     350.00
+    2026-11-12 10:01:00 UTC | unknown            :   2 purchases |     200.00
+    2026-11-12 10:01:00 UTC | xiaomi             :   1 purchases |     200.00
+
+KẾT QUẢ DRY-RUN: PASS (Logic tính toán kỳ vọng hoạt động chính xác).

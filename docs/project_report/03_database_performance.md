@@ -58,7 +58,49 @@ Trong đồ án, nhóm phối hợp linh hoạt cả 4 định dạng theo đún
 - **Giám sát hạn mức (Quotas):** Đăng ký đầy đủ Resource Provider `Microsoft.Sql` và `Microsoft.Compute` để theo dõi chính xác hạn mức vCPU và tài nguyên cho phép của gói Azure for Students.
 
 ## 5. Mô hình dữ liệu và kiến trúc lưu trữ
-Sơ đồ bảng + quan hệ với ASA/Power BI: [HÌNH – ĐIỀN]. Schema: `dbo.event_metrics_30s`, `dbo.brand_sales_1m` (bảng + cột + ý nghĩa). Index và lý do. Dữ liệu mock vs thật (`run_id`).
+
+### 5.1 Kiến trúc luồng dữ liệu tổng thể
+```mermaid
+flowchart LR
+    A["Raw Data (CSV 5.67 GB)"] -->|Data Producer| B["Azure Event Hubs (JSON Events)"]
+    B -->|Stream Processing| C["Azure Stream Analytics (ASA)"]
+    C -->|Tumbling Window 30s| D[("dbo.event_metrics_30s\n(Azure SQL)")]
+    C -->|Tumbling Window 1m| E[("dbo.brand_sales_1m\n(Azure SQL)")]
+    D -->|DirectQuery| F["Power BI Dashboard (TV4)"]
+    E -->|DirectQuery| F
+```
+
+### 5.2 Lược đồ cơ sở dữ liệu quan hệ (Relational Schema)
+Hệ thống sử dụng hai bảng quan hệ chính được chuẩn hóa theo hợp đồng dữ liệu đóng băng (Data Contract Freeze v1 ngày 08/11/2026):
+
+#### 1. Bảng tổng hợp sự kiện 30 giây (`dbo.event_metrics_30s`)
+Lưu trữ số lượng từng loại sự kiện và doanh thu mua hàng được tổng hợp theo từng cửa sổ trượt 30 giây:
+* `window_end` (`DATETIME2`, NOT NULL): Mốc thời gian kết thúc cửa sổ tính theo chuẩn UTC từ hàm `System.Timestamp()` của Stream Analytics.
+* `run_id` (`NVARCHAR(50)`, NOT NULL): Mã định danh đợt truyền dữ liệu (ví dụ: `mock-seed`, `integration-01`), dùng để phân tách và lọc độc lập từng phiên chạy.
+* `event_type` (`NVARCHAR(30)`, NOT NULL): Loại tương tác người dùng (`view`, `cart`, `remove_from_cart`, `purchase`).
+* `event_count` (`BIGINT`, NOT NULL): Tổng số sự kiện phát sinh trong cửa sổ 30 giây tương ứng.
+* `revenue` (`FLOAT`, NOT NULL): Tổng giá trị `price` của các sự kiện `purchase` trong cửa sổ (bằng 0 đối với các loại sự kiện khác).
+
+#### 2. Bảng doanh thu thương hiệu 1 phút (`dbo.brand_sales_1m`)
+Lưu trữ thông lượng mua hàng và doanh thu theo từng nhãn hàng trong cửa sổ 1 phút:
+* `window_end` (`DATETIME2`, NOT NULL): Mốc thời gian kết thúc cửa sổ 1 phút (UTC).
+* `run_id` (`NVARCHAR(50)`, NOT NULL): Mã đợt chạy phân tích.
+* `brand` (`NVARCHAR(200)`, NOT NULL): Tên thương hiệu sản phẩm. Đối với các bản ghi thiếu nhãn hiệu, hệ thống chuẩn hóa bắt buộc thành `'unknown'` bằng hàm `COALESCE(brand, 'unknown')`.
+* `purchase_events` (`BIGINT`, NOT NULL): Tổng số lần phát sinh hành vi mua hàng của thương hiệu trong 1 phút.
+* `revenue` (`FLOAT`, NOT NULL): Tổng doanh số bán ra của thương hiệu trong cửa sổ 1 phút.
+
+### 5.3 Chiến lược đánh chỉ mục (Indexing Strategy)
+Nhằm tối ưu hóa hiệu năng truy vấn trong chế độ DirectQuery của Power BI và hỗ trợ các truy vấn kiểm định, hệ thống thiết lập 2 Non-Clustered Index:
+* `ix_event_metrics_30s_window_run` trên bảng `dbo.event_metrics_30s (window_end, run_id)`
+* `ix_brand_sales_1m_window_run` trên bảng `dbo.brand_sales_1m (window_end, run_id)`
+
+**Lý do thiết kế:**
+1. **Tối ưu lọc thời gian thực:** Power BI liên tục gửi các câu truy vấn dạng `WHERE window_end >= DATEADD(minute, -15, SYSUTCDATETIME()) AND run_id = @run` để vẽ biểu đồ xu hướng. Cặp chỉ mục `(window_end, run_id)` giúp bộ tối ưu hóa truy vấn (Query Optimizer) thực hiện phép quét vùng chỉ mục (Index Seek) thay vì phải quét toàn bộ bảng (Table Scan).
+2. **Kiểm soát chi phí ghi:** Chỉ duy trì đúng 1 chỉ mục phụ trên mỗi bảng để tránh gây áp lực ghi log I/O lên Azure SQL Database trong suốt quá trình nhận dòng dữ liệu streaming với tần suất cao.
+
+### 5.4 Cơ chế cô lập dữ liệu thử nghiệm (`run_id`)
+* **Dữ liệu giả lập (`mock-seed`):** Được nạp vào ban đầu bằng tập lệnh `seed_data.sql` để mô phỏng 60 phút hoạt động gần nhất, giúp TV4 thiết kế và kiểm thử giao diện Power BI trước khi đường truyền hoàn tất.
+* **Dữ liệu tích hợp thật (`integration-01`):** Khi hệ thống chạy thật, dữ liệu được gắn cờ đợt chạy riêng biệt. Bảng điều khiển và các câu lệnh kiểm định lọc dữ liệu theo `run_id` tương ứng, loại bỏ nguy cơ lẫn lộn dữ liệu mà không cần phải xóa hoặc tạo lại bảng.
 
 ## 6. Kết quả đo  *(rubric 3.1, 3.3)*
 ### 6.1 Tốc độ đọc/ghi theo dung lượng

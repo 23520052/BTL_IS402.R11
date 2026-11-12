@@ -1,0 +1,221 @@
+2026-11-10 13:42:38 | INFO | Starting Producer MVP
+2026-11-10 13:42:38 | INFO | Input file: /kaggle/input/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store/2019-Oct.csv
+2026-11-10 13:42:38 | INFO | Event Hub: sales-events
+2026-11-10 13:42:38 | INFO | Run ID: integration-01
+2026-11-10 13:42:38 | INFO | Maximum events: 10000
+2026-11-10 13:42:38 | INFO | Batch event limit: 50
+2026-11-10 13:42:38 | INFO | CSV chunk size: 10000
+2026-11-10 13:42:38 | INFO | Rate limit: 50.00 events/second
+2026-11-10 13:42:38 | INFO | Maximum retries: 5
+2026-11-10 13:42:38 | INFO | Base backoff: 1.00 seconds
+2026-11-10 13:42:38 | INFO | Maximum backoff: 30.00 seconds
+2026-11-10 13:42:41 | INFO | Batch sent successfully | events=50 | duration=0.421s | retries=0
+2026-11-10 13:42:43 | INFO | Batch sent successfully | events=50 | duration=0.421s | retries=0
+2026-11-10 13:42:44 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:42:45 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:42:47 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:42:48 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:42:50 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:42:51 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:42:52 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:42:54 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:42:55 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:42:56 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:42:58 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:42:59 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:01 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:02 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:03 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:43:05 | INFO | Batch sent successfully | events=50 | duration=0.434s | retries=0
+2026-11-10 13:43:06 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:43:07 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:09 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:10 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:12 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:13 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:14 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:16 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:17 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:19 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:20 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:21 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:43:23 | INFO | Batch sent successfully | events=50 | duration=0.413s | retries=0
+2026-11-10 13:43:24 | INFO | Batch sent successfully | events=50 | duration=0.413s | retries=0
+2026-11-10 13:43:25 | INFO | Batch sent successfully | events=50 | duration=0.413s | retries=0
+2026-11-10 13:43:27 | INFO | Batch sent successfully | events=50 | duration=0.413s | retries=0
+2026-11-10 13:43:28 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:30 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:31 | INFO | Batch sent successfully | events=50 | duration=0.425s | retries=0
+2026-11-10 13:43:32 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:34 | INFO | Batch sent successfully | events=50 | duration=0.415s | retries=0
+2026-11-10 13:43:35 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:36 | INFO | Batch sent successfully | events=50 | duration=0.413s | retries=0
+2026-11-10 13:43:38 | INFO | Batch sent successfully | events=50 | duration=0.413s | retries=0
+2026-11-10 13:43:39 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:43:41 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:42 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:43 | INFO | Batch sent successfully | events=50 | duration=0.412s | retries=0
+2026-11-10 13:43:45 | INFO | Batch sent successfully | events=50 | duration=0.432s | retries=0
+2026-11-10 13:43:46 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:47 | INFO | Batch sent successfully | events=50 | duration=0.413s | retries=0
+2026-11-10 13:43:49 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:50 | INFO | Batch sent successfully | events=50 | duration=0.414s | retries=0
+2026-11-10 13:43:52 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:43:53 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:43:54 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:43:56 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:43:57 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:43:58 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:00 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:01 | INFO | Batch sent successfully | events=50 | duration=0.433s | retries=0
+2026-11-10 13:44:03 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:04 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:44:05 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:07 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:08 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:10 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:11 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:12 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:14 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:15 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:16 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:18 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:44:19 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:21 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:22 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:23 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:25 | INFO | Batch sent successfully | events=50 | duration=0.431s | retries=0
+2026-11-10 13:44:26 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:27 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:29 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:30 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:32 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:33 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:34 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:44:36 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:37 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:39 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:40 | INFO | Batch sent successfully | events=50 | duration=0.433s | retries=0
+2026-11-10 13:44:41 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:43 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:44 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:45 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:47 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:48 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:50 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:51 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:52 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:54 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:55 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:56 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:44:58 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:44:59 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:01 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:02 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:45:03 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:05 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:06 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:08 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:09 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:10 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:12 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:13 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:14 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:16 | INFO | Batch sent successfully | events=50 | duration=0.422s | retries=0
+2026-11-10 13:45:17 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:19 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:20 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:21 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:23 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:24 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:25 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:27 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:28 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:30 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:31 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:45:32 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:34 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:35 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:36 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:38 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:39 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:41 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:42 | INFO | Batch sent successfully | events=50 | duration=0.416s | retries=0
+2026-11-10 13:45:43 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:45 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:46 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:48 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:49 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:50 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:52 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:53 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:54 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:45:56 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:45:57 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:45:59 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:00 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:01 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:03 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:04 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:05 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:07 | INFO | Batch sent successfully | events=50 | duration=0.422s | retries=0
+2026-11-10 13:46:08 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:10 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:11 | INFO | Batch sent successfully | events=50 | duration=0.437s | retries=0
+2026-11-10 13:46:12 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:46:14 | INFO | Batch sent successfully | events=50 | duration=0.420s | retries=0
+2026-11-10 13:46:15 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:17 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:18 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:19 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:21 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:22 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:23 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:25 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:26 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:28 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:46:29 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:30 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:32 | INFO | Batch sent successfully | events=50 | duration=0.425s | retries=0
+2026-11-10 13:46:33 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:34 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:36 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:37 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:39 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:40 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:41 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:43 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:44 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:46 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:47 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:48 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:50 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:46:51 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:52 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:54 | INFO | Batch sent successfully | events=50 | duration=0.420s | retries=0
+2026-11-10 13:46:55 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:46:57 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:46:58 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 13:46:59 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:47:01 | INFO | Batch sent successfully | events=50 | duration=0.420s | retries=0
+2026-11-10 13:47:02 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:47:03 | INFO | Batch sent successfully | events=50 | duration=0.421s | retries=0
+2026-11-10 13:47:05 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:47:06 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:47:08 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:47:09 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:47:10 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 13:47:12 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:47:13 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:47:14 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:47:16 | INFO | Batch sent successfully | events=50 | duration=0.417s | retries=0
+2026-11-10 13:47:16 | INFO | ========== PRODUCER SUMMARY ==========
+2026-11-10 13:47:16 | INFO | Events read and prepared: 10000
+2026-11-10 13:47:16 | INFO | Events sent successfully: 10000
+2026-11-10 13:47:16 | INFO | Events success: 10000
+2026-11-10 13:47:16 | INFO | Events error: 0
+2026-11-10 13:47:16 | INFO | Total retries: 0
+2026-11-10 13:47:16 | INFO | Batches processed: 200
+2026-11-10 13:47:16 | INFO | Elapsed time: 276.06 seconds
+2026-11-10 13:47:16 | INFO | Average throughput: 36.22 events/second
+2026-11-10 13:47:16 | INFO | Producer MVP finished

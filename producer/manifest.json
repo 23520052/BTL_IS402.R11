@@ -1,0 +1,22 @@
+{
+  "manifest_version": 1,
+  "source_file": "2019-Oct.csv",
+  "total_data_rows": 42448764,
+  "split_ratio": 0.5,
+  "created_at": "2026-11-10T14:28:29.856923+00:00",
+  "row_indexing": "zero_based_data_rows",
+  "range_convention": "start_inclusive_end_exclusive",
+  "checksum": null,
+  "partitions": {
+    "dev": {
+      "row_start": 0,
+      "row_end": 21224382,
+      "row_count": 21224382
+    },
+    "demo": {
+      "row_start": 21224382,
+      "row_end": 42448764,
+      "row_count": 21224382
+    }
+  }
+}

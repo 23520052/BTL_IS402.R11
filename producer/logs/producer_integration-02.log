@@ -1,0 +1,61 @@
+2026-11-10 14:51:27 | INFO | Starting Producer MVP
+2026-11-10 14:51:27 | INFO | Input file: /kaggle/input/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store/2019-Oct.csv
+2026-11-10 14:51:27 | INFO | Manifest: /kaggle/working/manifest.json
+2026-11-10 14:51:27 | INFO | Partition mode: dev
+2026-11-10 14:51:27 | INFO | Partition range: [0, 21224382)
+2026-11-10 14:51:27 | INFO | Checkpoint: checkpoints/dev_integration-02.json
+2026-11-10 14:51:27 | INFO | Event Hub: configured from EVENTHUB_NAME environment variable
+2026-11-10 14:51:27 | INFO | Run ID: integration-02
+2026-11-10 14:51:27 | INFO | Maximum valid events: 100
+2026-11-10 14:51:27 | INFO | Batch event limit: 50
+2026-11-10 14:51:27 | INFO | CSV chunk size: 10000
+2026-11-10 14:51:27 | INFO | Rate limit: 50.00 events/second
+2026-11-10 14:51:27 | INFO | Maximum retries: 5
+2026-11-10 14:51:31 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 14:51:31 | INFO | Checkpoint updated | next_row=50 | last_confirmed_row=49
+2026-11-10 14:51:32 | INFO | Batch sent successfully | events=50 | duration=0.418s | retries=0
+2026-11-10 14:51:32 | INFO | Checkpoint updated | next_row=100 | last_confirmed_row=99
+2026-11-10 14:51:32 | INFO | ========== PRODUCER SUMMARY ==========
+2026-11-10 14:51:32 | INFO | Source rows scanned: 100
+2026-11-10 14:51:32 | INFO | Valid events prepared: 100
+2026-11-10 14:51:32 | INFO | Events sent successfully: 100
+2026-11-10 14:51:32 | INFO | Events error: 0
+2026-11-10 14:51:32 | INFO | Unsupported events skipped: 0
+2026-11-10 14:51:32 | INFO | Total retries: 0
+2026-11-10 14:51:32 | INFO | Batches processed: 2
+2026-11-10 14:51:32 | INFO | Checkpoint next_row: 100
+2026-11-10 14:51:32 | INFO | Partition completed: False
+2026-11-10 14:51:32 | INFO | Elapsed time: 3.08 seconds
+2026-11-10 14:51:32 | INFO | Average throughput: 32.46 events/second
+2026-11-10 14:51:32 | INFO | Producer MVP finished
+2026-11-10 14:53:16 | INFO | Resuming from checkpoint | next_row=100
+2026-11-10 14:53:16 | INFO | Starting Producer MVP
+2026-11-10 14:53:16 | INFO | Input file: /kaggle/input/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store/2019-Oct.csv
+2026-11-10 14:53:16 | INFO | Manifest: /kaggle/working/manifest.json
+2026-11-10 14:53:16 | INFO | Partition mode: dev
+2026-11-10 14:53:16 | INFO | Partition range: [0, 21224382)
+2026-11-10 14:53:16 | INFO | Checkpoint: checkpoints/dev_integration-02.json
+2026-11-10 14:53:16 | INFO | Event Hub: configured from EVENTHUB_NAME environment variable
+2026-11-10 14:53:16 | INFO | Run ID: integration-02
+2026-11-10 14:53:16 | INFO | Maximum valid events: 100
+2026-11-10 14:53:16 | INFO | Batch event limit: 50
+2026-11-10 14:53:16 | INFO | CSV chunk size: 10000
+2026-11-10 14:53:16 | INFO | Rate limit: 50.00 events/second
+2026-11-10 14:53:16 | INFO | Maximum retries: 5
+2026-11-10 14:53:19 | INFO | Batch sent successfully | events=50 | duration=0.419s | retries=0
+2026-11-10 14:53:19 | INFO | Checkpoint updated | next_row=150 | last_confirmed_row=149
+2026-11-10 14:53:21 | INFO | Batch sent successfully | events=50 | duration=0.420s | retries=0
+2026-11-10 14:53:21 | INFO | Checkpoint updated | next_row=200 | last_confirmed_row=199
+2026-11-10 14:53:21 | INFO | ========== PRODUCER SUMMARY ==========
+2026-11-10 14:53:21 | INFO | Source rows scanned: 100
+2026-11-10 14:53:21 | INFO | Valid events prepared: 100
+2026-11-10 14:53:21 | INFO | Events sent successfully: 100
+2026-11-10 14:53:21 | INFO | Events error: 0
+2026-11-10 14:53:21 | INFO | Unsupported events skipped: 0
+2026-11-10 14:53:21 | INFO | Total retries: 0
+2026-11-10 14:53:21 | INFO | Batches processed: 2
+2026-11-10 14:53:21 | INFO | Checkpoint next_row: 200
+2026-11-10 14:53:21 | INFO | Partition completed: False
+2026-11-10 14:53:21 | INFO | Elapsed time: 3.06 seconds
+2026-11-10 14:53:21 | INFO | Average throughput: 32.70 events/second
+2026-11-10 14:53:21 | INFO | Producer MVP finished

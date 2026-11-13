@@ -229,6 +229,21 @@ Ví dụ gửi tối đa 10,000 valid events:
     --max-events 10000
 ```
 
+```!python /kaggle/working/producer.py \
+    --input "/kaggle/input/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store/2019-Oct.csv" \
+    --manifest "/kaggle/working/manifest.json" \
+    --mode dev \
+    --max-events 10000 \
+    --batch-size 50 \
+    --chunk-size 10000 \
+    --run-id "integration-261113" \
+    --rate 50 \
+    --max-retries 5 \
+    --base-backoff 1 \
+    --max-backoff 30 \
+    --jsonl-output "/kaggle/working/events_integration-20261113.jsonl"
+```
+
 ### 7.2. Run DEMO
 
 ```python

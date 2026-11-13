@@ -657,6 +657,17 @@ class RateLimiter:
             time.monotonic(),
         )
 
+def append_jsonl_batch(output_path: Path, payloads: list[str]):
+    if output_path is None or not payloads:
+        return
+
+    with output_path.open("a", encoding="utf-8") as file:
+        for payload in payloads:
+            file.write(payload + "\n")
+
+        file.flush()
+        os.fsync(file.fileno())
+
 
 # ============================================================
 # PRODUCER
@@ -731,6 +742,24 @@ def run_producer(args, logger):
 
         start_row = row_start
 
+    jsonl_path = (
+        Path(args.jsonl_output)
+        if args.jsonl_output
+        else None
+    )
+
+    if jsonl_path is not None:
+        jsonl_path.parent.mkdir(parents=True, exist_ok=True)
+
+        if jsonl_path.exists():
+            raise FileExistsError(
+                f"JSONL output already exists: {jsonl_path}"
+            )
+
+        jsonl_path.touch()
+
+        logger.info("JSONL output: %s", jsonl_path)
+
     logger.info("Starting Producer MVP")
     logger.info("Input file: %s", input_path)
     logger.info("Manifest: %s", manifest_path)
@@ -777,6 +806,7 @@ def run_producer(args, logger):
     batch = producer.create_batch()
     batch_event_count = 0
     batch_last_source_row = None
+    batch_payloads = []
 
     start_time = time.perf_counter()
     partition_completed = False
@@ -786,6 +816,7 @@ def run_producer(args, logger):
         current_batch,
         event_count,
         last_source_row,
+        payloads,
     ):
         """
         Send one batch and checkpoint only after success.
@@ -811,6 +842,14 @@ def run_producer(args, logger):
                 "Batch could not be sent. "
                 "Checkpoint was not advanced."
             )
+
+        if jsonl_path is not None:
+            if len(payloads) != result["sent"]:
+                raise RuntimeError(
+                    "JSONL payload count does not match sent events."
+                )
+
+            append_jsonl_batch(jsonl_path, payloads)
 
         stats["events_sent"] += result["sent"]
 
@@ -898,11 +937,13 @@ def run_producer(args, logger):
                     batch,
                     batch_event_count,
                     batch_last_source_row,
+                    batch_payloads,
                 )
 
                 batch = producer.create_batch()
                 batch_event_count = 0
                 batch_last_source_row = None
+                batch_payloads = []
 
                 try:
                     batch.add(event_data)
@@ -916,6 +957,7 @@ def run_producer(args, logger):
             batch_event_count += 1
             batch_last_source_row = source_row_index
             stats["events_prepared"] += 1
+            batch_payloads.append(payload)
 
             # Flush when the configured event count is reached.
             if batch_event_count >= args.batch_size:
@@ -923,11 +965,13 @@ def run_producer(args, logger):
                     batch,
                     batch_event_count,
                     batch_last_source_row,
+                    batch_payloads,
                 )
 
                 batch = producer.create_batch()
                 batch_event_count = 0
                 batch_last_source_row = None
+                batch_payloads = []
 
         else:
             # The iterator reached the end of the partition
@@ -940,11 +984,13 @@ def run_producer(args, logger):
                 batch,
                 batch_event_count,
                 batch_last_source_row,
+                batch_payloads,
             )
 
             batch = producer.create_batch()
             batch_event_count = 0
             batch_last_source_row = None
+            batch_payloads = []
 
         # If all rows in the partition were scanned and all
         # batches were confirmed, mark the partition completed.
@@ -1124,6 +1170,12 @@ def parse_args():
         type=float,
         default=DEFAULT_MAX_BACKOFF,
         help="Maximum retry backoff in seconds",
+    )
+
+    parser.add_argument(
+        "--jsonl-output",
+        default=None,
+        help="Path to JSONL file containing successfully sent events",
     )
 
     args = parser.parse_args()

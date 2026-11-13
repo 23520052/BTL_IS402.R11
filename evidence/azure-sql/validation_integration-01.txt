@@ -1,0 +1,98 @@
+Run: integration-261113 | events trong file: 10,000
+
+[1] Số event theo loại
+  OK   cart                                   sample=         97.00  sql=         97.00
+  OK   purchase                               sample=        118.00  sql=        118.00
+  OK   view                                   sample=      9,785.00  sql=      9,785.00
+  OK   TỔNG event                             sample=     10,000.00  sql=     10,000.00
+
+[2] Tổng revenue purchase (event_metrics_30s)
+  OK   revenue purchase                       sample=     35,757.22  sql=     35,757.22
+
+[3] Purchase theo brand (brand_sales_1m)
+  OK   acer - purchase_events                 sample=          1.00  sql=          1.00
+  OK   acer - revenue                         sample=        532.81  sql=        532.81
+  OK   alteco - purchase_events               sample=          1.00  sql=          1.00
+  OK   alteco - revenue                       sample=         45.82  sql=         45.82
+  OK   apple - purchase_events                sample=         25.00  sql=         25.00
+  OK   apple - revenue                        sample=     19,415.91  sql=     19,415.91
+  OK   asus - purchase_events                 sample=          1.00  sql=          1.00
+  OK   asus - revenue                         sample=        879.96  sql=        879.96
+  OK   casio - purchase_events                sample=          1.00  sql=          1.00
+  OK   casio - revenue                        sample=        169.37  sql=        169.37
+  OK   cordiant - purchase_events             sample=          1.00  sql=          1.00
+  OK   cordiant - revenue                     sample=         42.99  sql=         42.99
+  OK   elenberg - purchase_events             sample=          1.00  sql=          1.00
+  OK   elenberg - revenue                     sample=         17.99  sql=         17.99
+  OK   epson - purchase_events                sample=          1.00  sql=          1.00
+  OK   epson - revenue                        sample=        116.73  sql=        116.73
+  OK   ersport - purchase_events              sample=          1.00  sql=          1.00
+  OK   ersport - revenue                      sample=         35.78  sql=         35.78
+  OK   granhel - purchase_events              sample=          1.00  sql=          1.00
+  OK   granhel - revenue                      sample=         36.04  sql=         36.04
+  OK   hp - purchase_events                   sample=          1.00  sql=          1.00
+  OK   hp - revenue                           sample=        320.35  sql=        320.35
+  OK   huawei - purchase_events               sample=          4.00  sql=          4.00
+  OK   huawei - revenue                       sample=        672.07  sql=        672.07
+  OK   jaguar - purchase_events               sample=          1.00  sql=          1.00
+  OK   jaguar - revenue                       sample=        164.20  sql=        164.20
+  OK   jbl - purchase_events                  sample=          1.00  sql=          1.00
+  OK   jbl - revenue                          sample=         20.57  sql=         20.57
+  OK   karya - purchase_events                sample=          1.00  sql=          1.00
+  OK   karya - revenue                        sample=        100.39  sql=        100.39
+  OK   kingston - purchase_events             sample=          1.00  sql=          1.00
+  OK   kingston - revenue                     sample=         66.67  sql=         66.67
+  OK   lg - purchase_events                   sample=          3.00  sql=          3.00
+  OK   lg - revenue                           sample=        837.66  sql=        837.66
+  OK   luminarc - purchase_events             sample=          1.00  sql=          1.00
+  OK   luminarc - revenue                     sample=         39.64  sql=         39.64
+  OK   meizu - purchase_events                sample=          1.00  sql=          1.00
+  OK   meizu - revenue                        sample=        133.59  sql=        133.59
+  OK   montale - purchase_events              sample=          1.00  sql=          1.00
+  OK   montale - revenue                      sample=        102.93  sql=        102.93
+  OK   nokia - purchase_events                sample=          2.00  sql=          2.00
+  OK   nokia - revenue                        sample=        133.38  sql=        133.38
+  OK   oasis - purchase_events                sample=          1.00  sql=          1.00
+  OK   oasis - revenue                        sample=         28.03  sql=         28.03
+  OK   omron - purchase_events                sample=          1.00  sql=          1.00
+  OK   omron - revenue                        sample=         62.52  sql=         62.52
+  OK   panasonic - purchase_events            sample=          2.00  sql=          2.00
+  OK   panasonic - revenue                    sample=        200.37  sql=        200.37
+  OK   pdw - purchase_events                  sample=          1.00  sql=          1.00
+  OK   pdw - revenue                          sample=        391.26  sql=        391.26
+  OK   philips - purchase_events              sample=          1.00  sql=          1.00
+  OK   philips - revenue                      sample=        120.95  sql=        120.95
+  OK   ritmix - purchase_events               sample=          2.00  sql=          2.00
+  OK   ritmix - revenue                       sample=          4.25  sql=          4.25
+  OK   samsung - purchase_events              sample=         26.00  sql=         26.00
+  OK   samsung - revenue                      sample=      6,677.27  sql=      6,677.27
+  OK   santeri - purchase_events              sample=          1.00  sql=          1.00
+  OK   santeri - revenue                      sample=         54.42  sql=         54.42
+  OK   shimano - purchase_events              sample=          1.00  sql=          1.00
+  OK   shimano - revenue                      sample=         95.21  sql=         95.21
+  OK   sho-me - purchase_events               sample=          1.00  sql=          1.00
+  OK   sho-me - revenue                       sample=        141.86  sql=        141.86
+  OK   sony - purchase_events                 sample=          1.00  sql=          1.00
+  OK   sony - revenue                         sample=        326.62  sql=        326.62
+  OK   tefal - purchase_events                sample=          1.00  sql=          1.00
+  OK   tefal - revenue                        sample=         38.59  sql=         38.59
+  OK   texet - purchase_events                sample=          1.00  sql=          1.00
+  OK   texet - revenue                        sample=         17.48  sql=         17.48
+  OK   transcend - purchase_events            sample=          1.00  sql=          1.00
+  OK   transcend - revenue                    sample=          5.12  sql=          5.12
+  OK   triangle - purchase_events             sample=          1.00  sql=          1.00
+  OK   triangle - revenue                     sample=         38.35  sql=         38.35
+  OK   unknown - purchase_events              sample=         12.00  sql=         12.00
+  OK   unknown - revenue                      sample=      1,773.87  sql=      1,773.87
+  OK   vivo - purchase_events                 sample=          1.00  sql=          1.00
+  OK   vivo - revenue                         sample=        463.31  sql=        463.31
+  OK   wacom - purchase_events                sample=          1.00  sql=          1.00
+  OK   wacom - revenue                        sample=         78.51  sql=         78.51
+  OK   xiaomi - purchase_events               sample=         11.00  sql=         11.00
+  OK   xiaomi - revenue                       sample=      1,354.38  sql=      1,354.38
+
+[4] Theo từng cửa sổ
+  30s: 28 khớp, 0 lệch
+  1m : 61 khớp, 0 lệch
+
+KẾT QUẢ: PASS - khớp hoàn toàn

@@ -135,7 +135,7 @@ class DatabaseClient:
                 "sqlcmd", "-S", self.server, "-d", self.database,
                 "-U", self.uid, "-P", self.pwd,
                 "-Q", f"SET NOCOUNT ON; {sql}",
-                "-s", "\t", "-W"
+                "-s", "\t", "-W", "-h", "-1"
             ]
             res = subprocess.run(cmd, capture_output=True, text=True)
             if res.returncode != 0:

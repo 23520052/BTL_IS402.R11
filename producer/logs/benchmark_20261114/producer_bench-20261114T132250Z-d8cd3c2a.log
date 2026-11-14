@@ -1,0 +1,427 @@
+2026-11-14 13:22:51 | INFO | JSONL output: /kaggle/working/benchmark_runs/bench-20261114T132250Z-d8cd3c2a.jsonl
+2026-11-14 13:22:51 | INFO | Starting Producer MVP
+2026-11-14 13:22:51 | INFO | Input file: /kaggle/input/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store/2019-Oct.csv
+2026-11-14 13:22:51 | INFO | Manifest: /kaggle/working/manifest.json
+2026-11-14 13:22:51 | INFO | Partition mode: dev
+2026-11-14 13:22:51 | INFO | Partition range: [0, 21224382)
+2026-11-14 13:22:51 | INFO | Checkpoint: /kaggle/working/benchmark_runs/bench-20261114T132250Z-d8cd3c2a.checkpoint.json
+2026-11-14 13:22:51 | INFO | Event Hub: configured from EVENTHUB_NAME environment variable
+2026-11-14 13:22:51 | INFO | Run ID: bench-20261114T132250Z-d8cd3c2a
+2026-11-14 13:22:51 | INFO | Maximum valid events: 10000
+2026-11-14 13:22:51 | INFO | Batch event limit: 50
+2026-11-14 13:22:51 | INFO | CSV chunk size: 10000
+2026-11-14 13:22:51 | INFO | Rate limit: 2000.00 events/second
+2026-11-14 13:22:51 | INFO | Maximum retries: 5
+2026-11-14 13:22:53 | INFO | Batch sent successfully | events=50 | duration=0.253s | retries=0
+2026-11-14 13:22:53 | INFO | Checkpoint updated | next_row=50 | last_confirmed_row=49
+2026-11-14 13:22:53 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:22:53 | INFO | Checkpoint updated | next_row=100 | last_confirmed_row=99
+2026-11-14 13:22:53 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:53 | INFO | Checkpoint updated | next_row=150 | last_confirmed_row=149
+2026-11-14 13:22:53 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:22:53 | INFO | Checkpoint updated | next_row=200 | last_confirmed_row=199
+2026-11-14 13:22:53 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:53 | INFO | Checkpoint updated | next_row=250 | last_confirmed_row=249
+2026-11-14 13:22:54 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:54 | INFO | Checkpoint updated | next_row=300 | last_confirmed_row=299
+2026-11-14 13:22:54 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:54 | INFO | Checkpoint updated | next_row=350 | last_confirmed_row=349
+2026-11-14 13:22:54 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:54 | INFO | Checkpoint updated | next_row=400 | last_confirmed_row=399
+2026-11-14 13:22:54 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:54 | INFO | Checkpoint updated | next_row=450 | last_confirmed_row=449
+2026-11-14 13:22:54 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:54 | INFO | Checkpoint updated | next_row=500 | last_confirmed_row=499
+2026-11-14 13:22:55 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:55 | INFO | Checkpoint updated | next_row=550 | last_confirmed_row=549
+2026-11-14 13:22:55 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:55 | INFO | Checkpoint updated | next_row=600 | last_confirmed_row=599
+2026-11-14 13:22:55 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:22:55 | INFO | Checkpoint updated | next_row=650 | last_confirmed_row=649
+2026-11-14 13:22:55 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:55 | INFO | Checkpoint updated | next_row=700 | last_confirmed_row=699
+2026-11-14 13:22:55 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:55 | INFO | Checkpoint updated | next_row=750 | last_confirmed_row=749
+2026-11-14 13:22:56 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:56 | INFO | Checkpoint updated | next_row=800 | last_confirmed_row=799
+2026-11-14 13:22:56 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:56 | INFO | Checkpoint updated | next_row=850 | last_confirmed_row=849
+2026-11-14 13:22:56 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:56 | INFO | Checkpoint updated | next_row=900 | last_confirmed_row=899
+2026-11-14 13:22:56 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:56 | INFO | Checkpoint updated | next_row=950 | last_confirmed_row=949
+2026-11-14 13:22:56 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:56 | INFO | Checkpoint updated | next_row=1000 | last_confirmed_row=999
+2026-11-14 13:22:57 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:57 | INFO | Checkpoint updated | next_row=1050 | last_confirmed_row=1049
+2026-11-14 13:22:57 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:22:57 | INFO | Checkpoint updated | next_row=1100 | last_confirmed_row=1099
+2026-11-14 13:22:57 | INFO | Batch sent successfully | events=50 | duration=0.157s | retries=0
+2026-11-14 13:22:57 | INFO | Checkpoint updated | next_row=1150 | last_confirmed_row=1149
+2026-11-14 13:22:57 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:57 | INFO | Checkpoint updated | next_row=1200 | last_confirmed_row=1199
+2026-11-14 13:22:57 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:57 | INFO | Checkpoint updated | next_row=1250 | last_confirmed_row=1249
+2026-11-14 13:22:58 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:58 | INFO | Checkpoint updated | next_row=1300 | last_confirmed_row=1299
+2026-11-14 13:22:58 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:58 | INFO | Checkpoint updated | next_row=1350 | last_confirmed_row=1349
+2026-11-14 13:22:58 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:58 | INFO | Checkpoint updated | next_row=1400 | last_confirmed_row=1399
+2026-11-14 13:22:58 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:58 | INFO | Checkpoint updated | next_row=1450 | last_confirmed_row=1449
+2026-11-14 13:22:58 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:58 | INFO | Checkpoint updated | next_row=1500 | last_confirmed_row=1499
+2026-11-14 13:22:59 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:59 | INFO | Checkpoint updated | next_row=1550 | last_confirmed_row=1549
+2026-11-14 13:22:59 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:59 | INFO | Checkpoint updated | next_row=1600 | last_confirmed_row=1599
+2026-11-14 13:22:59 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:59 | INFO | Checkpoint updated | next_row=1650 | last_confirmed_row=1649
+2026-11-14 13:22:59 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:22:59 | INFO | Checkpoint updated | next_row=1700 | last_confirmed_row=1699
+2026-11-14 13:22:59 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:22:59 | INFO | Checkpoint updated | next_row=1750 | last_confirmed_row=1749
+2026-11-14 13:22:59 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:00 | INFO | Checkpoint updated | next_row=1800 | last_confirmed_row=1799
+2026-11-14 13:23:00 | INFO | Batch sent successfully | events=50 | duration=0.132s | retries=0
+2026-11-14 13:23:00 | INFO | Checkpoint updated | next_row=1850 | last_confirmed_row=1849
+2026-11-14 13:23:00 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:00 | INFO | Checkpoint updated | next_row=1900 | last_confirmed_row=1899
+2026-11-14 13:23:00 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:00 | INFO | Checkpoint updated | next_row=1950 | last_confirmed_row=1949
+2026-11-14 13:23:00 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:00 | INFO | Checkpoint updated | next_row=2000 | last_confirmed_row=1999
+2026-11-14 13:23:00 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:00 | INFO | Checkpoint updated | next_row=2050 | last_confirmed_row=2049
+2026-11-14 13:23:01 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:01 | INFO | Checkpoint updated | next_row=2100 | last_confirmed_row=2099
+2026-11-14 13:23:01 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:01 | INFO | Checkpoint updated | next_row=2150 | last_confirmed_row=2149
+2026-11-14 13:23:01 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:01 | INFO | Checkpoint updated | next_row=2200 | last_confirmed_row=2199
+2026-11-14 13:23:01 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:01 | INFO | Checkpoint updated | next_row=2250 | last_confirmed_row=2249
+2026-11-14 13:23:01 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:01 | INFO | Checkpoint updated | next_row=2300 | last_confirmed_row=2299
+2026-11-14 13:23:02 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:02 | INFO | Checkpoint updated | next_row=2350 | last_confirmed_row=2349
+2026-11-14 13:23:02 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:02 | INFO | Checkpoint updated | next_row=2400 | last_confirmed_row=2399
+2026-11-14 13:23:02 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:02 | INFO | Checkpoint updated | next_row=2450 | last_confirmed_row=2449
+2026-11-14 13:23:02 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:02 | INFO | Checkpoint updated | next_row=2500 | last_confirmed_row=2499
+2026-11-14 13:23:02 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:02 | INFO | Checkpoint updated | next_row=2550 | last_confirmed_row=2549
+2026-11-14 13:23:03 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:03 | INFO | Checkpoint updated | next_row=2600 | last_confirmed_row=2599
+2026-11-14 13:23:03 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:03 | INFO | Checkpoint updated | next_row=2650 | last_confirmed_row=2649
+2026-11-14 13:23:03 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:03 | INFO | Checkpoint updated | next_row=2700 | last_confirmed_row=2699
+2026-11-14 13:23:03 | INFO | Batch sent successfully | events=50 | duration=0.133s | retries=0
+2026-11-14 13:23:03 | INFO | Checkpoint updated | next_row=2750 | last_confirmed_row=2749
+2026-11-14 13:23:03 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:03 | INFO | Checkpoint updated | next_row=2800 | last_confirmed_row=2799
+2026-11-14 13:23:04 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:04 | INFO | Checkpoint updated | next_row=2850 | last_confirmed_row=2849
+2026-11-14 13:23:04 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:04 | INFO | Checkpoint updated | next_row=2900 | last_confirmed_row=2899
+2026-11-14 13:23:04 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:04 | INFO | Checkpoint updated | next_row=2950 | last_confirmed_row=2949
+2026-11-14 13:23:04 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:04 | INFO | Checkpoint updated | next_row=3000 | last_confirmed_row=2999
+2026-11-14 13:23:04 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:04 | INFO | Checkpoint updated | next_row=3050 | last_confirmed_row=3049
+2026-11-14 13:23:05 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:05 | INFO | Checkpoint updated | next_row=3100 | last_confirmed_row=3099
+2026-11-14 13:23:05 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:05 | INFO | Checkpoint updated | next_row=3150 | last_confirmed_row=3149
+2026-11-14 13:23:05 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:05 | INFO | Checkpoint updated | next_row=3200 | last_confirmed_row=3199
+2026-11-14 13:23:05 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:05 | INFO | Checkpoint updated | next_row=3250 | last_confirmed_row=3249
+2026-11-14 13:23:05 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:23:05 | INFO | Checkpoint updated | next_row=3300 | last_confirmed_row=3299
+2026-11-14 13:23:06 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:06 | INFO | Checkpoint updated | next_row=3350 | last_confirmed_row=3349
+2026-11-14 13:23:06 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:06 | INFO | Checkpoint updated | next_row=3400 | last_confirmed_row=3399
+2026-11-14 13:23:06 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:06 | INFO | Checkpoint updated | next_row=3450 | last_confirmed_row=3449
+2026-11-14 13:23:06 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:06 | INFO | Checkpoint updated | next_row=3500 | last_confirmed_row=3499
+2026-11-14 13:23:06 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:06 | INFO | Checkpoint updated | next_row=3550 | last_confirmed_row=3549
+2026-11-14 13:23:07 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:07 | INFO | Checkpoint updated | next_row=3600 | last_confirmed_row=3599
+2026-11-14 13:23:07 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:07 | INFO | Checkpoint updated | next_row=3650 | last_confirmed_row=3649
+2026-11-14 13:23:07 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:07 | INFO | Checkpoint updated | next_row=3700 | last_confirmed_row=3699
+2026-11-14 13:23:07 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:07 | INFO | Checkpoint updated | next_row=3750 | last_confirmed_row=3749
+2026-11-14 13:23:07 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:07 | INFO | Checkpoint updated | next_row=3800 | last_confirmed_row=3799
+2026-11-14 13:23:08 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:08 | INFO | Checkpoint updated | next_row=3850 | last_confirmed_row=3849
+2026-11-14 13:23:08 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:08 | INFO | Checkpoint updated | next_row=3900 | last_confirmed_row=3899
+2026-11-14 13:23:08 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:08 | INFO | Checkpoint updated | next_row=3950 | last_confirmed_row=3949
+2026-11-14 13:23:08 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:08 | INFO | Checkpoint updated | next_row=4000 | last_confirmed_row=3999
+2026-11-14 13:23:08 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:08 | INFO | Checkpoint updated | next_row=4050 | last_confirmed_row=4049
+2026-11-14 13:23:09 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:09 | INFO | Checkpoint updated | next_row=4100 | last_confirmed_row=4099
+2026-11-14 13:23:09 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:09 | INFO | Checkpoint updated | next_row=4150 | last_confirmed_row=4149
+2026-11-14 13:23:09 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:09 | INFO | Checkpoint updated | next_row=4200 | last_confirmed_row=4199
+2026-11-14 13:23:09 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:09 | INFO | Checkpoint updated | next_row=4250 | last_confirmed_row=4249
+2026-11-14 13:23:09 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:09 | INFO | Checkpoint updated | next_row=4300 | last_confirmed_row=4299
+2026-11-14 13:23:10 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:10 | INFO | Checkpoint updated | next_row=4350 | last_confirmed_row=4349
+2026-11-14 13:23:10 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:10 | INFO | Checkpoint updated | next_row=4400 | last_confirmed_row=4399
+2026-11-14 13:23:10 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:10 | INFO | Checkpoint updated | next_row=4450 | last_confirmed_row=4449
+2026-11-14 13:23:10 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:10 | INFO | Checkpoint updated | next_row=4500 | last_confirmed_row=4499
+2026-11-14 13:23:10 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:10 | INFO | Checkpoint updated | next_row=4550 | last_confirmed_row=4549
+2026-11-14 13:23:11 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:11 | INFO | Checkpoint updated | next_row=4600 | last_confirmed_row=4599
+2026-11-14 13:23:11 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:11 | INFO | Checkpoint updated | next_row=4650 | last_confirmed_row=4649
+2026-11-14 13:23:11 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:11 | INFO | Checkpoint updated | next_row=4700 | last_confirmed_row=4699
+2026-11-14 13:23:11 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:11 | INFO | Checkpoint updated | next_row=4750 | last_confirmed_row=4749
+2026-11-14 13:23:11 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:11 | INFO | Checkpoint updated | next_row=4800 | last_confirmed_row=4799
+2026-11-14 13:23:12 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:12 | INFO | Checkpoint updated | next_row=4850 | last_confirmed_row=4849
+2026-11-14 13:23:12 | INFO | Batch sent successfully | events=50 | duration=0.131s | retries=0
+2026-11-14 13:23:12 | INFO | Checkpoint updated | next_row=4900 | last_confirmed_row=4899
+2026-11-14 13:23:12 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:12 | INFO | Checkpoint updated | next_row=4950 | last_confirmed_row=4949
+2026-11-14 13:23:12 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:12 | INFO | Checkpoint updated | next_row=5000 | last_confirmed_row=4999
+2026-11-14 13:23:13 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:13 | INFO | Checkpoint updated | next_row=5050 | last_confirmed_row=5049
+2026-11-14 13:23:13 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:23:13 | INFO | Checkpoint updated | next_row=5100 | last_confirmed_row=5099
+2026-11-14 13:23:13 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:13 | INFO | Checkpoint updated | next_row=5150 | last_confirmed_row=5149
+2026-11-14 13:23:13 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:13 | INFO | Checkpoint updated | next_row=5200 | last_confirmed_row=5199
+2026-11-14 13:23:13 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:13 | INFO | Checkpoint updated | next_row=5250 | last_confirmed_row=5249
+2026-11-14 13:23:13 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:13 | INFO | Checkpoint updated | next_row=5300 | last_confirmed_row=5299
+2026-11-14 13:23:14 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:14 | INFO | Checkpoint updated | next_row=5350 | last_confirmed_row=5349
+2026-11-14 13:23:14 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:14 | INFO | Checkpoint updated | next_row=5400 | last_confirmed_row=5399
+2026-11-14 13:23:14 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:14 | INFO | Checkpoint updated | next_row=5450 | last_confirmed_row=5449
+2026-11-14 13:23:14 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:14 | INFO | Checkpoint updated | next_row=5500 | last_confirmed_row=5499
+2026-11-14 13:23:14 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:14 | INFO | Checkpoint updated | next_row=5550 | last_confirmed_row=5549
+2026-11-14 13:23:15 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:23:15 | INFO | Checkpoint updated | next_row=5600 | last_confirmed_row=5599
+2026-11-14 13:23:15 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:15 | INFO | Checkpoint updated | next_row=5650 | last_confirmed_row=5649
+2026-11-14 13:23:15 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:15 | INFO | Checkpoint updated | next_row=5700 | last_confirmed_row=5699
+2026-11-14 13:23:15 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:15 | INFO | Checkpoint updated | next_row=5750 | last_confirmed_row=5749
+2026-11-14 13:23:16 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:16 | INFO | Checkpoint updated | next_row=5800 | last_confirmed_row=5799
+2026-11-14 13:23:16 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:16 | INFO | Checkpoint updated | next_row=5850 | last_confirmed_row=5849
+2026-11-14 13:23:16 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:16 | INFO | Checkpoint updated | next_row=5900 | last_confirmed_row=5899
+2026-11-14 13:23:16 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:16 | INFO | Checkpoint updated | next_row=5950 | last_confirmed_row=5949
+2026-11-14 13:23:16 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:16 | INFO | Checkpoint updated | next_row=6000 | last_confirmed_row=5999
+2026-11-14 13:23:17 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:17 | INFO | Checkpoint updated | next_row=6050 | last_confirmed_row=6049
+2026-11-14 13:23:17 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:17 | INFO | Checkpoint updated | next_row=6100 | last_confirmed_row=6099
+2026-11-14 13:23:17 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:17 | INFO | Checkpoint updated | next_row=6150 | last_confirmed_row=6149
+2026-11-14 13:23:17 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:17 | INFO | Checkpoint updated | next_row=6200 | last_confirmed_row=6199
+2026-11-14 13:23:17 | INFO | Batch sent successfully | events=50 | duration=0.140s | retries=0
+2026-11-14 13:23:17 | INFO | Checkpoint updated | next_row=6250 | last_confirmed_row=6249
+2026-11-14 13:23:18 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:18 | INFO | Checkpoint updated | next_row=6300 | last_confirmed_row=6299
+2026-11-14 13:23:18 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:18 | INFO | Checkpoint updated | next_row=6350 | last_confirmed_row=6349
+2026-11-14 13:23:18 | INFO | Batch sent successfully | events=50 | duration=0.140s | retries=0
+2026-11-14 13:23:18 | INFO | Checkpoint updated | next_row=6400 | last_confirmed_row=6399
+2026-11-14 13:23:18 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:18 | INFO | Checkpoint updated | next_row=6450 | last_confirmed_row=6449
+2026-11-14 13:23:18 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:23:18 | INFO | Checkpoint updated | next_row=6500 | last_confirmed_row=6499
+2026-11-14 13:23:19 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:19 | INFO | Checkpoint updated | next_row=6550 | last_confirmed_row=6549
+2026-11-14 13:23:19 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:19 | INFO | Checkpoint updated | next_row=6600 | last_confirmed_row=6599
+2026-11-14 13:23:19 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:19 | INFO | Checkpoint updated | next_row=6650 | last_confirmed_row=6649
+2026-11-14 13:23:19 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:19 | INFO | Checkpoint updated | next_row=6700 | last_confirmed_row=6699
+2026-11-14 13:23:19 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:19 | INFO | Checkpoint updated | next_row=6750 | last_confirmed_row=6749
+2026-11-14 13:23:20 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:20 | INFO | Checkpoint updated | next_row=6800 | last_confirmed_row=6799
+2026-11-14 13:23:20 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:20 | INFO | Checkpoint updated | next_row=6850 | last_confirmed_row=6849
+2026-11-14 13:23:20 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:20 | INFO | Checkpoint updated | next_row=6900 | last_confirmed_row=6899
+2026-11-14 13:23:20 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:20 | INFO | Checkpoint updated | next_row=6950 | last_confirmed_row=6949
+2026-11-14 13:23:20 | INFO | Batch sent successfully | events=50 | duration=0.131s | retries=0
+2026-11-14 13:23:20 | INFO | Checkpoint updated | next_row=7000 | last_confirmed_row=6999
+2026-11-14 13:23:21 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:21 | INFO | Checkpoint updated | next_row=7050 | last_confirmed_row=7049
+2026-11-14 13:23:21 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:23:21 | INFO | Checkpoint updated | next_row=7100 | last_confirmed_row=7099
+2026-11-14 13:23:21 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:21 | INFO | Checkpoint updated | next_row=7150 | last_confirmed_row=7149
+2026-11-14 13:23:21 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:21 | INFO | Checkpoint updated | next_row=7200 | last_confirmed_row=7199
+2026-11-14 13:23:21 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:21 | INFO | Checkpoint updated | next_row=7250 | last_confirmed_row=7249
+2026-11-14 13:23:22 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:22 | INFO | Checkpoint updated | next_row=7300 | last_confirmed_row=7299
+2026-11-14 13:23:22 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:22 | INFO | Checkpoint updated | next_row=7350 | last_confirmed_row=7349
+2026-11-14 13:23:22 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:22 | INFO | Checkpoint updated | next_row=7400 | last_confirmed_row=7399
+2026-11-14 13:23:22 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:22 | INFO | Checkpoint updated | next_row=7450 | last_confirmed_row=7449
+2026-11-14 13:23:22 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:22 | INFO | Checkpoint updated | next_row=7500 | last_confirmed_row=7499
+2026-11-14 13:23:23 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:23 | INFO | Checkpoint updated | next_row=7550 | last_confirmed_row=7549
+2026-11-14 13:23:23 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:23 | INFO | Checkpoint updated | next_row=7600 | last_confirmed_row=7599
+2026-11-14 13:23:23 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:23 | INFO | Checkpoint updated | next_row=7650 | last_confirmed_row=7649
+2026-11-14 13:23:23 | INFO | Batch sent successfully | events=50 | duration=0.140s | retries=0
+2026-11-14 13:23:23 | INFO | Checkpoint updated | next_row=7700 | last_confirmed_row=7699
+2026-11-14 13:23:23 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:23 | INFO | Checkpoint updated | next_row=7750 | last_confirmed_row=7749
+2026-11-14 13:23:24 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:24 | INFO | Checkpoint updated | next_row=7800 | last_confirmed_row=7799
+2026-11-14 13:23:24 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:24 | INFO | Checkpoint updated | next_row=7850 | last_confirmed_row=7849
+2026-11-14 13:23:24 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:24 | INFO | Checkpoint updated | next_row=7900 | last_confirmed_row=7899
+2026-11-14 13:23:24 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:24 | INFO | Checkpoint updated | next_row=7950 | last_confirmed_row=7949
+2026-11-14 13:23:24 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:24 | INFO | Checkpoint updated | next_row=8000 | last_confirmed_row=7999
+2026-11-14 13:23:24 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:24 | INFO | Checkpoint updated | next_row=8050 | last_confirmed_row=8049
+2026-11-14 13:23:25 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:23:25 | INFO | Checkpoint updated | next_row=8100 | last_confirmed_row=8099
+2026-11-14 13:23:25 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:25 | INFO | Checkpoint updated | next_row=8150 | last_confirmed_row=8149
+2026-11-14 13:23:25 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:25 | INFO | Checkpoint updated | next_row=8200 | last_confirmed_row=8199
+2026-11-14 13:23:25 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:25 | INFO | Checkpoint updated | next_row=8250 | last_confirmed_row=8249
+2026-11-14 13:23:25 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:25 | INFO | Checkpoint updated | next_row=8300 | last_confirmed_row=8299
+2026-11-14 13:23:26 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:26 | INFO | Checkpoint updated | next_row=8350 | last_confirmed_row=8349
+2026-11-14 13:23:26 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:26 | INFO | Checkpoint updated | next_row=8400 | last_confirmed_row=8399
+2026-11-14 13:23:26 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:26 | INFO | Checkpoint updated | next_row=8450 | last_confirmed_row=8449
+2026-11-14 13:23:26 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:26 | INFO | Checkpoint updated | next_row=8500 | last_confirmed_row=8499
+2026-11-14 13:23:26 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:26 | INFO | Checkpoint updated | next_row=8550 | last_confirmed_row=8549
+2026-11-14 13:23:27 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:27 | INFO | Checkpoint updated | next_row=8600 | last_confirmed_row=8599
+2026-11-14 13:23:27 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:27 | INFO | Checkpoint updated | next_row=8650 | last_confirmed_row=8649
+2026-11-14 13:23:27 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:27 | INFO | Checkpoint updated | next_row=8700 | last_confirmed_row=8699
+2026-11-14 13:23:27 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:27 | INFO | Checkpoint updated | next_row=8750 | last_confirmed_row=8749
+2026-11-14 13:23:27 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:27 | INFO | Checkpoint updated | next_row=8800 | last_confirmed_row=8799
+2026-11-14 13:23:28 | INFO | Batch sent successfully | events=50 | duration=0.133s | retries=0
+2026-11-14 13:23:28 | INFO | Checkpoint updated | next_row=8850 | last_confirmed_row=8849
+2026-11-14 13:23:28 | INFO | Batch sent successfully | events=50 | duration=0.126s | retries=0
+2026-11-14 13:23:28 | INFO | Checkpoint updated | next_row=8900 | last_confirmed_row=8899
+2026-11-14 13:23:28 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:28 | INFO | Checkpoint updated | next_row=8950 | last_confirmed_row=8949
+2026-11-14 13:23:28 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:28 | INFO | Checkpoint updated | next_row=9000 | last_confirmed_row=8999
+2026-11-14 13:23:28 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:28 | INFO | Checkpoint updated | next_row=9050 | last_confirmed_row=9049
+2026-11-14 13:23:29 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:29 | INFO | Checkpoint updated | next_row=9100 | last_confirmed_row=9099
+2026-11-14 13:23:29 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:29 | INFO | Checkpoint updated | next_row=9150 | last_confirmed_row=9149
+2026-11-14 13:23:29 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:29 | INFO | Checkpoint updated | next_row=9200 | last_confirmed_row=9199
+2026-11-14 13:23:29 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:29 | INFO | Checkpoint updated | next_row=9250 | last_confirmed_row=9249
+2026-11-14 13:23:29 | INFO | Batch sent successfully | events=50 | duration=0.146s | retries=0
+2026-11-14 13:23:29 | INFO | Checkpoint updated | next_row=9300 | last_confirmed_row=9299
+2026-11-14 13:23:30 | INFO | Batch sent successfully | events=50 | duration=0.130s | retries=0
+2026-11-14 13:23:30 | INFO | Checkpoint updated | next_row=9350 | last_confirmed_row=9349
+2026-11-14 13:23:30 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:30 | INFO | Checkpoint updated | next_row=9400 | last_confirmed_row=9399
+2026-11-14 13:23:30 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:30 | INFO | Checkpoint updated | next_row=9450 | last_confirmed_row=9449
+2026-11-14 13:23:30 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:30 | INFO | Checkpoint updated | next_row=9500 | last_confirmed_row=9499
+2026-11-14 13:23:30 | INFO | Batch sent successfully | events=50 | duration=0.129s | retries=0
+2026-11-14 13:23:30 | INFO | Checkpoint updated | next_row=9550 | last_confirmed_row=9549
+2026-11-14 13:23:31 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:31 | INFO | Checkpoint updated | next_row=9600 | last_confirmed_row=9599
+2026-11-14 13:23:31 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:31 | INFO | Checkpoint updated | next_row=9650 | last_confirmed_row=9649
+2026-11-14 13:23:31 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:31 | INFO | Checkpoint updated | next_row=9700 | last_confirmed_row=9699
+2026-11-14 13:23:31 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:31 | INFO | Checkpoint updated | next_row=9750 | last_confirmed_row=9749
+2026-11-14 13:23:31 | INFO | Batch sent successfully | events=50 | duration=0.128s | retries=0
+2026-11-14 13:23:31 | INFO | Checkpoint updated | next_row=9800 | last_confirmed_row=9799
+2026-11-14 13:23:32 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:32 | INFO | Checkpoint updated | next_row=9850 | last_confirmed_row=9849
+2026-11-14 13:23:32 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:32 | INFO | Checkpoint updated | next_row=9900 | last_confirmed_row=9899
+2026-11-14 13:23:32 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:32 | INFO | Checkpoint updated | next_row=9950 | last_confirmed_row=9949
+2026-11-14 13:23:32 | INFO | Batch sent successfully | events=50 | duration=0.127s | retries=0
+2026-11-14 13:23:32 | INFO | Checkpoint updated | next_row=10000 | last_confirmed_row=9999
+2026-11-14 13:23:32 | INFO | ========== PRODUCER SUMMARY ==========
+2026-11-14 13:23:32 | INFO | Source rows scanned: 10000
+2026-11-14 13:23:32 | INFO | Valid events prepared: 10000
+2026-11-14 13:23:32 | INFO | Events sent successfully: 10000
+2026-11-14 13:23:32 | INFO | Events error: 0
+2026-11-14 13:23:32 | INFO | Unsupported events skipped: 0
+2026-11-14 13:23:32 | INFO | Total retries: 0
+2026-11-14 13:23:32 | INFO | Batches processed: 200
+2026-11-14 13:23:32 | INFO | Checkpoint next_row: 10000
+2026-11-14 13:23:32 | INFO | Partition completed: False
+2026-11-14 13:23:32 | INFO | Elapsed time: 40.01 seconds
+2026-11-14 13:23:32 | INFO | Average throughput: 249.93 events/second
+2026-11-14 13:23:32 | INFO | Producer MVP finished

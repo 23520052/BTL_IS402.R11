@@ -60,9 +60,9 @@ GEN_SQL = f"""
 INSERT INTO bench.read_events (event_time, event_type, product_id, brand, price, user_id, user_session, payload)
 SELECT TOP (?)
     DATEADD(SECOND, CAST({R} % 2678400 AS INT), '2019-10-01'),
-    CHOOSE(1 + CAST({R} % 100 AS INT) / 33, 'view', 'view', 'view', 'purchase'),
+    CHOOSE(1 + (ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) % 100) / 33, 'view', 'view', 'view', 'purchase'),
     CAST(1000978 + {R} % 59500000 AS INT),
-    CHOOSE(1 + CAST({R} % 10 AS INT), 'samsung','apple','xiaomi','huawei','lenovo','acer','sony','lg','hp','bosch'),
+    CHOOSE(1 + ((ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) / 7) % 10), 'samsung','apple','xiaomi','huawei','lenovo','acer','sony','lg','hp','bosch'),
     CAST(ROUND({R} % 257407 / 100.0, 2) AS FLOAT),
     CAST(33869381 + {R} % 530000000 AS INT),
     CONVERT(CHAR(36), NEWID()),
@@ -178,11 +178,16 @@ def grow_to(conn, target_mb, label):
     n = 0
     while mb < target_mb:
         n += 1
+        if rows > 0:
+            need = int((target_mb - mb) * rows / mb) + 1
+            chunk = max(1000, min(CHUNK, need))
+        else:
+            chunk = 20_000 if target_mb < 50 else CHUNK
         t = time.perf_counter()
-        conn.cursor().execute(GEN_SQL, CHUNK)
+        conn.cursor().execute(GEN_SQL, chunk)
         dur = time.perf_counter() - t
         mb, rows = table_size(conn)
-        record("read", "load_generate_chunk", label, mb, CHUNK, n, dur,
+        record("read", "load_generate_chunk", label, mb, chunk, n, dur,
                extra=f"server-side generate; table now {mb:.0f}MB/{rows}rows")
     return mb, rows
 
@@ -277,48 +282,93 @@ def gen_rows(n):
              random.randint(1, 2000), round(random.random() * 5000, 2)) for i in range(n)]
 
 
+def get_done_tests():
+    done = set()
+    if os.path.exists(CSV_PATH):
+        with open(CSV_PATH, "r", encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                if row.get("target") == ARGS.target and row.get("suite") == "write":
+                    done.add((row.get("test"), int(row.get("repeat") or 1)))
+    return done
+
+
+def run_with_retry(fn, tries=3):
+    for k in range(1, tries + 1):
+        try:
+            return fn()
+        except pyodbc.OperationalError as e:
+            if k == tries:
+                raise
+            print(f"  [retry {k}/{tries - 1}] mất kết nối ({e.args[0] if e.args else e}), thử lại sau 10s...", flush=True)
+            time.sleep(10)
+
+
 def suite_write():
     ac = connect(autocommit=True)
     setup(ac)
-    # (tên bảng, tổng dòng, batch) - batch commit mỗi lần, giống cách ASA ghi theo lô
+    ac.close()
+    done = get_done_tests()
     plan = [("write_noidx", 10_000, 1000), ("write_noidx", 100_000, 1000), ("write_noidx", 100_000, 100),
             ("write_noidx", 100_000, 10_000), ("write_idx", 10_000, 1000), ("write_idx", 100_000, 1000)]
 
-    # 1) ghi từng dòng (autocommit) - mốc so sánh với ghi theo batch
-    ac.cursor().execute("TRUNCATE TABLE bench.write_noidx")
-    rows = gen_rows(1000)
-    cur, lat, since = ac.cursor(), [], utcnow()
-    t0 = time.perf_counter()
-    for r in rows:
-        t = time.perf_counter()
-        cur.execute(INS_SQL.format(t="write_noidx"), r)
-        lat.append((time.perf_counter() - t) * 1000)
-    dur = time.perf_counter() - t0
-    dtu = finish_dtu(ac, since)
-    record("write", "write_single_n1000_noidx", None, None, 1000, 1, dur, dtu=dtu,
-           extra=f"1 INSERT/dòng, autocommit; lat_p50_ms={statistics.median(lat):.2f}; lat_p95_ms={pct(lat, 95):.2f}")
+    # 1) ghi từng dòng (autocommit)
+    if ("write_single_n1000_noidx", 1) not in done:
+        def one_single():
+            c = connect(autocommit=True)
+            try:
+                c.cursor().execute("TRUNCATE TABLE bench.write_noidx")
+                rows = gen_rows(1000)
+                cur, lat, since = c.cursor(), [], utcnow()
+                t0 = time.perf_counter()
+                for r in rows:
+                    t = time.perf_counter()
+                    cur.execute(INS_SQL.format(t="write_noidx"), r)
+                    lat.append((time.perf_counter() - t) * 1000)
+                dur = time.perf_counter() - t0
+                dtu = finish_dtu(c, since)
+                record("write", "write_single_n1000_noidx", None, None, 1000, 1, dur, dtu=dtu,
+                       extra=f"1 INSERT/dòng, autocommit; lat_p50_ms={statistics.median(lat):.2f}; lat_p95_ms={pct(lat, 95):.2f}")
+            finally:
+                c.close()
+        run_with_retry(one_single)
+    else:
+        print("  [skip] write_single_n1000_noidx đã có kết quả trong CSV", flush=True)
 
-    # 2) ghi theo batch bằng fast_executemany
-    conn = connect(autocommit=False)
+    # 2) ghi theo batch: mỗi lần đo một kết nối riêng, tự thử lại nếu rớt mạng
     for table, n, batch in plan:
+        tag = "idx" if table == "write_idx" else "noidx"
+        test_name = f"write_b{batch}_n{n}_{tag}"
         for rep in range(1, ARGS.reps + 1):
-            conn.cursor().execute(f"TRUNCATE TABLE bench.{table}")
-            conn.commit()
-            rows = gen_rows(n)
-            cur = conn.cursor()
-            cur.fast_executemany = True
-            lat, since = [], utcnow()
-            t0 = time.perf_counter()
-            for i in range(0, n, batch):
-                t = time.perf_counter()
-                cur.executemany(INS_SQL.format(t=table), rows[i:i + batch])
-                conn.commit()
-                lat.append((time.perf_counter() - t) * 1000)
-            dur = time.perf_counter() - t0
-            dtu = finish_dtu(conn, since)
-            tag = "idx" if table == "write_idx" else "noidx"
-            record("write", f"write_b{batch}_n{n}_{tag}", None, None, n, rep, dur, dtu=dtu,
-                   extra=f"batch={batch}; batch_lat_p50_ms={statistics.median(lat):.1f}; batch_lat_p95_ms={pct(lat, 95):.1f}")
+            if (test_name, rep) in done:
+                print(f"  [skip] {test_name} #{rep} đã có trong CSV", flush=True)
+                continue
+
+            def one_rep(table=table, n=n, batch=batch, rep=rep, test_name=test_name):
+                conn = connect(autocommit=False)
+                try:
+                    conn.cursor().execute(f"TRUNCATE TABLE bench.{table}")
+                    conn.commit()
+                    rows = gen_rows(n)
+                    cur = conn.cursor()
+                    cur.fast_executemany = True
+                    lat, since = [], utcnow()
+                    t0 = time.perf_counter()
+                    for i in range(0, n, batch):
+                        t = time.perf_counter()
+                        cur.executemany(INS_SQL.format(t=table), rows[i:i + batch])
+                        conn.commit()
+                        lat.append((time.perf_counter() - t) * 1000)
+                    dur = time.perf_counter() - t0
+                    dtu = finish_dtu(conn, since)
+                    record("write", test_name, None, None, n, rep, dur, dtu=dtu,
+                           extra=f"batch={batch}; batch_lat_p50_ms={statistics.median(lat):.1f}; batch_lat_p95_ms={pct(lat, 95):.1f}")
+                finally:
+                    try:
+                        conn.close()
+                    except Exception:
+                        pass
+
+            run_with_retry(one_rep)
 
 
 def suite_reset():

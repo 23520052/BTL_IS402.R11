@@ -4,7 +4,7 @@
 
 Đo hiệu năng của Producer khi gửi dữ liệu hành vi thương mại điện tử từ CSV lên Azure Event Hubs ở nhiều mức tải cấu hình. Benchmark sử dụng lại `producer.py` hiện tại, không thay thế logic đọc CSV, chuyển đổi event, batching, retry, checkpoint hoặc rate limiter.
 
-Các mức tải mặc định: 100, 500, 1.000 và 2.000 events/second. Mỗi mức tải chạy tối thiểu 3 lần.
+Benchmark chính thức được thực hiện ngày **14/11/2026**, với 4 mức tải mục tiêu: 100, 500, 1.000 và 2.000 events/second. Mỗi mức tải chạy 3 lần, tổng cộng 12 lần chạy.
 
 ## 2. Phạm vi đo
 
@@ -12,44 +12,46 @@ Benchmark chỉ đo phía Python Producer và quá trình gửi tới Azure Even
 
 Mỗi lần chạy ghi nhận:
 
-- Target rate và repetition.
-- `run_id` duy nhất.
-- Số event gửi thành công.
-- Số event lỗi.
-- Tổng số lần retry.
-- Thời gian thực thi Producer.
-- Throughput thực tế (events/second).
-- Kích thước payload JSON thực tế (bytes) và throughput (MB/second).
-- Batch size, CPU, RAM, runtime, Python/OS và Azure Event Hubs region.
+-   Target rate và repetition.
+-   `run_id` duy nhất.
+-   Số event gửi thành công (`events_sent`).
+-   Số event lỗi (`events_error`).
+-   Tổng số lần retry (`retries`).
+-   Thời gian thực thi Producer (`duration_seconds`).
+-   Throughput thực tế (`actual_events_per_sec`).
+-   Kích thước payload JSON thực tế (`payload_bytes`) và throughput
+    (`payload_MB_per_sec`).
+-   Số event trong JSONL (`jsonl_event_count`) để đối chiếu.
+-   Batch size, chunk size, CPU, RAM, runtime, Python/OS và Azure Event
+    Hubs region.
+-   Exit code và trạng thái của tiến trình Producer.
 
 `payload_MB_per_sec` dùng MB thập phân (1 MB = 1.000.000 bytes). Kích thước payload được tính từ các JSON payload UTF-8 đã ghi vào JSONL sau khi batch được Event Hubs xác nhận gửi thành công; ký tự xuống dòng phân tách JSONL không được tính vào payload.
 
 ## 3. Cách đo
 
-1. `benchmark_producer.py` gọi `producer.py` bằng subprocess cho từng cặp target rate/repetition.
-2. Mỗi lần chạy có `run_id`, checkpoint, log và JSONL riêng.
-3. Producer dùng `--rate` để giới hạn tốc độ đầu vào theo mức tải cần thử.
-4. Số event thành công, event lỗi và retry được tổng hợp từ log của Producer.
-5. Payload bytes được tính từ JSONL của lần chạy tương ứng.
-6. Throughput thực tế được tính bằng:
-
-   `actual_events_per_sec = events_sent / duration_seconds`
-
-   `payload_MB_per_sec = payload_bytes / 1.000.000 / duration_seconds`
-
-7. Kết quả từng lần chạy được ghi thành một dòng trong `producer_metrics.csv`. Không tự điền hoặc suy đoán số liệu chưa chạy.
+1.  `benchmark_producer.py` gọi `producer.py` bằng subprocess cho từng cặp target rate/repetition.
+2.  Mỗi lần chạy có `run_id`, checkpoint, log và JSONL riêng.
+3.  Producer dùng `--rate` để giới hạn tốc độ đầu vào theo mức tải cần thử.
+4.  Số event thành công, event lỗi và retry được tổng hợp từ log của Producer.
+5.  Payload bytes được tính từ JSONL của lần chạy tương ứng.
+6.  Throughput thực tế được tính bằng:
+    `actual_events_per_sec = events_sent / duration_seconds`
+    `payload_MB_per_sec = payload_bytes / 1.000.000 / duration_seconds`
+7.  Kết quả từng lần chạy được ghi thành một dòng trong `producer_metrics.csv`.
+8.  Kết quả chỉ được xem là hợp lệ khi tiến trình kết thúc thành công, trạng thái hoàn tất và số event JSONL khớp với số event gửi thành công.
 
 Thời gian chính dùng cho throughput là `Elapsed time` do Producer ghi nhận. Nếu Producer kết thúc lỗi trước khi in summary, benchmark dùng wall-clock duration của subprocess và đánh dấu trạng thái để người thực hiện kiểm tra log.
-
 ## 4. Môi trường thực nghiệm
 
 | Thuộc tính | Giá trị thực tế |
 |---|---|
+| Ngày thực hiện | 14/11/2026 |
 | Runtime | Kaggle Notebook |
-| CPU | Tự động ghi nhận khi chạy |
-| RAM | Tự động ghi nhận khi chạy |
-| Python version | Tự động ghi nhận khi chạy |
-| Operating system | Tự động ghi nhận khi chạy |
+| CPU |4 |
+| RAM | 31,35 GiB (Tự động ghi nhận khi chạy) |
+| Python version | 3.13.18 |
+| Operating system | Linux 6.18.55+ x86_64, glibc 2.39 |
 | Azure Event Hubs region | Người chạy nhập bằng `--eventhub-region` |
 | Event Hub name | Được cấu hình qua Kaggle Secret, không ghi secret vào báo cáo |
 | Batch size | Mặc định 50 events/batch; có thể cấu hình |
@@ -114,31 +116,57 @@ PROJECT = "/kaggle/working/BTL_IS402.R11"
 
 Nếu muốn chạy thử ngắn trước, có thể đặt `--max-events 1000` và chỉ dùng một vài mức tải; kết quả chạy thử không nên gộp với kết quả benchmark chính thức.
 
-### 5.5. Lấy kết quả
+### 5.5. Kết quả đầu ra
 
-File kết quả chính:
-
-```text
-/kaggle/working/producer_metrics.csv
-```
+-   `/kaggle/working/producer_metrics.csv`: bảng tổng hợp 12 lần chạy.
+-   `/kaggle/working/benchmark_runs/`: log, JSONL và checkpoint riêng của từng lần chạy.
 
 Thư mục `benchmark_runs/` chứa log và JSONL riêng của từng lần chạy. Giữ lại các file này làm bằng chứng và để kiểm tra những lần chạy lỗi hoặc lệch số lượng JSONL.
 
-## 6. Bảng kết quả
+## 6. Kết quả benchmark thực tế
 
-Điền bảng sau từ số liệu thực tế trong `producer_metrics.csv`. Có thể báo cáo trung bình của 3 lần lặp cho mỗi mức tải; nên giữ cả độ lệch chuẩn hoặc min/max nếu có đủ dữ liệu.
+### 6.1. Tổng quan
+
+| Chỉ tiêu | Kết quả |
+|---|---|
+| Số mức tải | 4 |
+| Số lần chạy mỗi mức | 3 |
+| Tổng số lần chạy | 12 |
+| Tổng số events gửi thành công | 120.000 |
+| Tổng số events lỗi | 0 |
+| Tổng số lần retry | 0 |
+| Số lần chạy hoàn tất | 12/12 |
+| Process return code | 0 ở cả 12 lần |
+| JSONL event count | 10.000 ở cả 12 lần |
+| Payload mỗi lần chạy | 4.044.364 bytes |
+
+Tất cả 12 lần chạy có `status=completed`, `process_return_code=0`, `events_error=0`, `retries=0`. `jsonl_event_count` đều bằng `events_sent` (10.000 event/lần).
+
+### 6.2. Kết quả trung bình theo mức tải
+
+Các giá trị throughput và duration dưới đây là trung bình số học của 3 lần lặp ở mỗi mức tải. Events sent, errors và retries là tổng của 3 lần lặp.
 
 | Target rate (events/s) | Repetitions | Events sent | Errors | Retries | Avg duration (s) | Avg actual throughput (events/s) | Avg payload throughput (MB/s) |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 100 | 3 | — | — | — | — | — | — |
-| 500 | 3 | — | — | — | — | — | — |
-| 1.000 | 3 | — | — | — | — | — | — |
-| 2.000 | 3 | — | — | — | — | — | — |
+| 100 | 3 | 30.000 | 0 | 0 | 149,28 | 66,99 | 0,0271 |
+| 500 | 3 | 30.000 | 0 | 0 | 47,99 | 208,39 | 0,0843 |
+| 1.000 | 3 | 30.000 | 0 | 0 | 40,27 | 248,35 | 0,1004 |
+| 2.000 | 3 | 30.000 | 0 | 0 | 39,90 | 250,61 | 0,1014 |
+
+### 6.3. Nhận xét
+
+-   Cả 12 lần chạy đều hoàn tất thành công, gửi đủ 10.000 events mỗi lần; không ghi nhận event lỗi hoặc retry.
+-   Khi target rate tăng từ 100 lên 500 events/s, throughput thực tế trung bình tăng từ 66,99 lên 208,39 events/s.
+-   Khi target rate tăng từ 500 lên 1.000 events/s, throughput thực tế tăng lên 248,35 events/s.
+-   Khi target rate tăng tiếp từ 1.000 lên 2.000 events/s, throughput chỉ tăng nhẹ lên 250,61 events/s. Trong cấu hình thử nghiệm này, throughput có dấu hiệu bão hòa quanh 250 events/s.
+-   Payload throughput trung bình tăng từ 0,0271 MB/s ở mức tải 100 lên khoảng 0,1014 MB/s ở mức tải 2.000.
+-   Kết quả cho thấy Producer không đạt target rate đã cấu hình ở cả bốn mức. Target rate là tốc độ giới hạn đầu vào, không phải throughput được đảm bảo.
+
+Không thể chỉ dựa trên kết quả này để xác định chính xác nguyên nhân giới hạn throughput. Muốn xác định bottleneck cần đo/profile riêng các công đoạn đọc CSV, chuyển đổi event, rate limiter, batching, gửi Event Hubs và cập nhật checkpoint.
 
 ## 7. Lưu ý và giới hạn
 
 - Target rate là giới hạn tốc độ cấu hình cho Producer, không phải throughput thực tế được đảm bảo. Báo cáo phải dùng `actual_events_per_sec` đo được.
-- Benchmark gửi message thật lên Event Hubs. Mỗi lần chạy tạo `run_id` mới và phát lại một đoạn dữ liệu nguồn; các message này có thể đi tiếp xuống Stream Analytics/SQL/Power BI nếu pipeline đang hoạt động. Nên dùng Event Hub hoặc môi trường kiểm thử riêng. Nếu buộc dùng Event Hub đang tích hợp, cần thống nhất trước cách nhận diện/lọc các `run_id` benchmark với thành viên phụ trách downstream.
+- Benchmark gửi message thật lên Event Hubs. Mỗi lần chạy tạo `run_id` mới và phát lại một đoạn dữ liệu nguồn. Trong lần thử này, nhóm đã stop Stream Analytics trước khi benchmark; do đó không có xử lý tiếp qua Stream Analytics trong thời gian thử nghiệm. Nếu pipeline được bật lại hoặc có consumer khác, cần xem xét khả năng các message benchmark được xử lý tiếp.
 - Mỗi repetition là một lần gửi mới, không phải resume checkpoint cũ. Điều này tránh checkpoint của lần trước làm thay đổi số event được đo.
 - Kết quả phụ thuộc tài nguyên Kaggle tại thời điểm chạy, network, vị trí địa lý, cấu hình Event Hubs, batch size và tải của dịch vụ.
 - `payload_MB_per_sec` là tốc độ payload JSON ở phía Producer, không phải network wire throughput; không bao gồm overhead giao thức, TLS hoặc framing của Event Hubs.
@@ -146,7 +174,12 @@ Thư mục `benchmark_runs/` chứa log và JSONL riêng của từng lần ch�
 - Nếu process thất bại hoặc `jsonl_event_count` khác `events_sent`, cần mở log tương ứng để kiểm tra trước khi dùng số liệu.
 - Không ghi connection string, SAS key hoặc thông tin bí mật vào CSV, log, ảnh chụp hay tài liệu.
 - Benchmark này không đo Stream Analytics, SQL hoặc Power BI.
+- Kết quả phản ánh một cấu hình thử nghiệm cụ thể: Kaggle Notebook, batch size 50, chunk size 10.000, tối đa 10.000 events mỗi lần và mode `dev`. Không nên suy rộng trực tiếp thành năng lực tối đa của Azure Event Hubs hoặc của hệ thống production.
 
 ## 8. Kết luận thực nghiệm
 
-Chưa có kết luận định lượng trước khi chạy benchmark. Sau khi có kết quả, nhận xét mức tải mà Producer duy trì ổn định, chênh lệch giữa target rate và actual throughput, tỷ lệ lỗi/retry, và ảnh hưởng của batch size. Không suy rộng kết quả ngoài cấu hình môi trường đã ghi nhận.
+Benchmark Producer đã hoàn thành với 4 mức tải, mỗi mức lặp lại 3 lần. Cả 12 lần chạy đều gửi thành công 10.000 events, tổng cộng 120.000 events; không ghi nhận event lỗi hoặc retry. Số lượng event trong JSONL khớp với số event gửi thành công ở tất cả các lần chạy.
+
+Throughput thực tế trung bình lần lượt là 66,99; 208,39; 248,35 và 250,61 events/s tương ứng với target rate 100; 500; 1.000 và 2.000 events/s. Throughput tăng khi nâng target rate từ 100 lên 1.000 events/s, nhưng gần như không tăng thêm khi target rate tăng từ 1.000 lên 2.000 events/s. Vì vậy, trong cấu hình thử nghiệm này, Producer thể hiện dấu hiệu bão hòa quanh 250 events/s.
+
+Đây là kết quả đo end-to-end phía Producer trong môi trường Kaggle và cấu hình đã nêu, không phải phép đo throughput độc lập của Azure Event Hubs. Cần profiling bổ sung nếu muốn xác định nguyên nhân giới hạn hiệu năng.

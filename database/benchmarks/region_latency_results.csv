@@ -1,0 +1,25 @@
+timestamp_utc,client,target,server_host,server_region,metric,n,min_ms,p50_ms,p95_ms,max_ms,mean_ms,note
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,tcp,100,49.54,52.85,75.0,82.17,56.86,luot phu laptop
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,ping,100,53.91,54.9,58.13,69.79,55.4,luot phu laptop
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,query,100,55.14,55.79,58.24,72.36,56.32,luot phu laptop
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,login,30,286.03,302.4,335.9,344.82,305.11,luot phu laptop
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,tcp,100,103.03,109.47,131.63,135.2,112.71,luot phu laptop
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,ping,100,102.16,103.35,105.4,106.56,103.52,luot phu laptop
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,query,100,103.24,104.21,106.28,115.65,104.52,luot phu laptop
+2026-11-15 11:28:32,"Laptop HCMC, wifi nha",far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,login,30,550.14,577.72,624.37,630.77,575.55,luot phu laptop
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,tcp,100,2.42,3.51,7.07,17.16,4.12,luot 1
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,ping,100,0.69,0.85,0.99,2.5,0.87,luot 1
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,query,100,0.93,1.08,1.31,2.45,1.12,luot 1
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,login,30,56.35,59.28,68.16,71.41,60.67,luot 1
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,tcp,100,111.55,112.78,116.38,120.12,113.16,luot 1
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,ping,100,109.9,110.1,110.65,128.1,110.39,luot 1
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,query,100,110.31,110.55,111.05,117.11,110.66,luot 1
+2026-11-15 11:24:31,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,login,30,1151.35,1160.44,1173.79,1174.84,1161.02,luot 1
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,tcp,100,2.44,3.36,6.93,17.72,3.97,"luot 2, 21:47 CN"
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,ping,100,0.76,0.88,1.0,2.61,0.92,"luot 2, 21:47 CN"
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,query,100,0.97,1.09,1.37,3.13,1.16,"luot 2, 21:47 CN"
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,azure,sqlsrv-sales-gr03-tram01.database.windows.net,eastasia,login,30,56.12,58.62,65.05,70.42,59.74,"luot 2, 21:47 CN"
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,tcp,100,111.41,112.62,126.54,144.65,114.22,"luot 2, 21:47 CN"
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,ping,100,110.54,110.7,111.01,112.58,110.74,"luot 2, 21:47 CN"
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,query,100,110.87,111.17,111.39,111.53,111.18,"luot 2, 21:47 CN"
+2026-11-15 14:49:15,VM B2ats_v2 East Asia,far,sqlsrv-sales-far-gr03.database.windows.net,uaenorth,login,30,1151.5,1159.89,1177.68,1179.94,1160.98,"luot 2, 21:47 CN"

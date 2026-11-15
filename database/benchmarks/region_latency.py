@@ -28,6 +28,8 @@ from datetime import datetime, timezone
 import pyodbc
 from dotenv import load_dotenv
 
+pyodbc.pooling = False
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(HERE, "..", ".env"))
 CSV_PATH = os.path.join(HERE, "region_latency_results.csv")

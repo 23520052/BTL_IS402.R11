@@ -1,0 +1,1067 @@
+{
+    "checked_at_utc":  "2026-11-17T03:35:43.3097557Z",
+    "server":  "sqlsrv-sales-gr03-tram01.database.windows.net",
+    "database":  "salesdb",
+    "user":  "pbi_reader",
+    "selected_run":  "integration-261113",
+    "status":  "pass",
+    "operation":  "validate_kpi_results",
+    "active_sql":  "SELECT SUM(purchase_events) AS purchase_events,SUM(revenue) AS purchase_value FROM dbo.brand_sales_1m WHERE run_id=\u0027mock-seed\u0027",
+    "permissions":  [
+                        {
+                            "database_user":  "pbi_reader",
+                            "can_select":  1,
+                            "can_insert":  0,
+                            "can_delete":  0
+                        }
+                    ],
+    "schema":  [
+                   {
+                       "TABLE_NAME":  "brand_sales_1m",
+                       "COLUMN_NAME":  "window_end",
+                       "DATA_TYPE":  "datetime2",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "brand_sales_1m",
+                       "COLUMN_NAME":  "run_id",
+                       "DATA_TYPE":  "nvarchar",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "brand_sales_1m",
+                       "COLUMN_NAME":  "brand",
+                       "DATA_TYPE":  "nvarchar",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "brand_sales_1m",
+                       "COLUMN_NAME":  "purchase_events",
+                       "DATA_TYPE":  "bigint",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "brand_sales_1m",
+                       "COLUMN_NAME":  "revenue",
+                       "DATA_TYPE":  "float",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "event_metrics_30s",
+                       "COLUMN_NAME":  "window_end",
+                       "DATA_TYPE":  "datetime2",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "event_metrics_30s",
+                       "COLUMN_NAME":  "run_id",
+                       "DATA_TYPE":  "nvarchar",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "event_metrics_30s",
+                       "COLUMN_NAME":  "event_type",
+                       "DATA_TYPE":  "nvarchar",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "event_metrics_30s",
+                       "COLUMN_NAME":  "event_count",
+                       "DATA_TYPE":  "bigint",
+                       "IS_NULLABLE":  "NO"
+                   },
+                   {
+                       "TABLE_NAME":  "event_metrics_30s",
+                       "COLUMN_NAME":  "revenue",
+                       "DATA_TYPE":  "float",
+                       "IS_NULLABLE":  "NO"
+                   }
+               ],
+    "runs":  [
+                 {
+                     "run_id":  "integration-20261113",
+                     "aggregate_rows":  27,
+                     "total_events":  10000,
+                     "first_window_utc":  "2026-11-13T13:10:00.0000000Z",
+                     "last_window_utc":  "2026-11-13T13:14:00.0000000Z"
+                 },
+                 {
+                     "run_id":  "integration-261113",
+                     "aggregate_rows":  28,
+                     "total_events":  10000,
+                     "first_window_utc":  "2026-11-13T13:37:30.0000000Z",
+                     "last_window_utc":  "2026-11-13T13:42:00.0000000Z"
+                 },
+                 {
+                     "run_id":  "mock-seed",
+                     "aggregate_rows":  480,
+                     "total_events":  75567,
+                     "first_window_utc":  "2026-11-09T05:19:30.0000000Z",
+                     "last_window_utc":  "2026-11-09T06:19:00.0000000Z"
+                 },
+                 {
+                     "run_id":  "smoke-3433042d611a",
+                     "aggregate_rows":  5,
+                     "total_events":  8,
+                     "first_window_utc":  "2026-11-11T15:51:30.0000000Z",
+                     "last_window_utc":  "2026-11-11T15:52:00.0000000Z"
+                 }
+             ],
+    "events_by_type":  [
+                           {
+                               "event_type":  "cart",
+                               "event_count":  97,
+                               "purchase_value":  0
+                           },
+                           {
+                               "event_type":  "purchase",
+                               "event_count":  118,
+                               "purchase_value":  35757.22
+                           },
+                           {
+                               "event_type":  "view",
+                               "event_count":  9785,
+                               "purchase_value":  0
+                           }
+                       ],
+    "kpis":  [
+                 {
+                     "total_events":  10000,
+                     "purchase_events":  118,
+                     "view_events":  9785,
+                     "cart_events":  97,
+                     "remove_events":  0,
+                     "purchase_value":  35757.22,
+                     "purchase_to_view_ratio":  0.01205927439959121
+                 }
+             ],
+    "brands":  [
+                   {
+                       "brand":  "apple",
+                       "purchase_events":  25,
+                       "purchase_value":  19415.910000000003
+                   },
+                   {
+                       "brand":  "samsung",
+                       "purchase_events":  26,
+                       "purchase_value":  6677.27
+                   },
+                   {
+                       "brand":  "unknown",
+                       "purchase_events":  12,
+                       "purchase_value":  1773.87
+                   },
+                   {
+                       "brand":  "xiaomi",
+                       "purchase_events":  11,
+                       "purchase_value":  1354.3799999999999
+                   },
+                   {
+                       "brand":  "asus",
+                       "purchase_events":  1,
+                       "purchase_value":  879.96
+                   },
+                   {
+                       "brand":  "lg",
+                       "purchase_events":  3,
+                       "purchase_value":  837.66
+                   },
+                   {
+                       "brand":  "huawei",
+                       "purchase_events":  4,
+                       "purchase_value":  672.07
+                   },
+                   {
+                       "brand":  "acer",
+                       "purchase_events":  1,
+                       "purchase_value":  532.81
+                   },
+                   {
+                       "brand":  "vivo",
+                       "purchase_events":  1,
+                       "purchase_value":  463.31
+                   },
+                   {
+                       "brand":  "pdw",
+                       "purchase_events":  1,
+                       "purchase_value":  391.26
+                   },
+                   {
+                       "brand":  "sony",
+                       "purchase_events":  1,
+                       "purchase_value":  326.62
+                   },
+                   {
+                       "brand":  "hp",
+                       "purchase_events":  1,
+                       "purchase_value":  320.35
+                   },
+                   {
+                       "brand":  "panasonic",
+                       "purchase_events":  2,
+                       "purchase_value":  200.37
+                   },
+                   {
+                       "brand":  "casio",
+                       "purchase_events":  1,
+                       "purchase_value":  169.37
+                   },
+                   {
+                       "brand":  "jaguar",
+                       "purchase_events":  1,
+                       "purchase_value":  164.2
+                   },
+                   {
+                       "brand":  "sho-me",
+                       "purchase_events":  1,
+                       "purchase_value":  141.86
+                   },
+                   {
+                       "brand":  "meizu",
+                       "purchase_events":  1,
+                       "purchase_value":  133.59
+                   },
+                   {
+                       "brand":  "nokia",
+                       "purchase_events":  2,
+                       "purchase_value":  133.38
+                   },
+                   {
+                       "brand":  "philips",
+                       "purchase_events":  1,
+                       "purchase_value":  120.95
+                   },
+                   {
+                       "brand":  "epson",
+                       "purchase_events":  1,
+                       "purchase_value":  116.73
+                   },
+                   {
+                       "brand":  "montale",
+                       "purchase_events":  1,
+                       "purchase_value":  102.93
+                   },
+                   {
+                       "brand":  "karya",
+                       "purchase_events":  1,
+                       "purchase_value":  100.39
+                   },
+                   {
+                       "brand":  "shimano",
+                       "purchase_events":  1,
+                       "purchase_value":  95.21
+                   },
+                   {
+                       "brand":  "wacom",
+                       "purchase_events":  1,
+                       "purchase_value":  78.51
+                   },
+                   {
+                       "brand":  "kingston",
+                       "purchase_events":  1,
+                       "purchase_value":  66.67
+                   },
+                   {
+                       "brand":  "omron",
+                       "purchase_events":  1,
+                       "purchase_value":  62.52
+                   },
+                   {
+                       "brand":  "santeri",
+                       "purchase_events":  1,
+                       "purchase_value":  54.42
+                   },
+                   {
+                       "brand":  "alteco",
+                       "purchase_events":  1,
+                       "purchase_value":  45.82
+                   },
+                   {
+                       "brand":  "cordiant",
+                       "purchase_events":  1,
+                       "purchase_value":  42.99
+                   },
+                   {
+                       "brand":  "luminarc",
+                       "purchase_events":  1,
+                       "purchase_value":  39.64
+                   },
+                   {
+                       "brand":  "tefal",
+                       "purchase_events":  1,
+                       "purchase_value":  38.59
+                   },
+                   {
+                       "brand":  "triangle",
+                       "purchase_events":  1,
+                       "purchase_value":  38.35
+                   },
+                   {
+                       "brand":  "granhel",
+                       "purchase_events":  1,
+                       "purchase_value":  36.04
+                   },
+                   {
+                       "brand":  "ersport",
+                       "purchase_events":  1,
+                       "purchase_value":  35.78
+                   },
+                   {
+                       "brand":  "oasis",
+                       "purchase_events":  1,
+                       "purchase_value":  28.03
+                   },
+                   {
+                       "brand":  "jbl",
+                       "purchase_events":  1,
+                       "purchase_value":  20.57
+                   },
+                   {
+                       "brand":  "elenberg",
+                       "purchase_events":  1,
+                       "purchase_value":  17.99
+                   },
+                   {
+                       "brand":  "texet",
+                       "purchase_events":  1,
+                       "purchase_value":  17.48
+                   },
+                   {
+                       "brand":  "transcend",
+                       "purchase_events":  1,
+                       "purchase_value":  5.12
+                   },
+                   {
+                       "brand":  "ritmix",
+                       "purchase_events":  2,
+                       "purchase_value":  4.25
+                   }
+               ],
+    "integrity":  [
+                      {
+                          "check_name":  "events_duplicate_keys",
+                          "issues":  0
+                      },
+                      {
+                          "check_name":  "brands_duplicate_keys",
+                          "issues":  0
+                      },
+                      {
+                          "check_name":  "events_invalid_values",
+                          "issues":  0
+                      },
+                      {
+                          "check_name":  "brands_invalid_values",
+                          "issues":  0
+                      }
+                  ],
+    "event_windows":  [
+                          {
+                              "window_end":  "2026-11-13T13:37:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  95,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  3,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  10,
+                              "revenue":  2387.84
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1182,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  13,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  15,
+                              "revenue":  4798.7400000000007
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1167,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  17,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  16,
+                              "revenue":  4052.6100000000006
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1159,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  16,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  12,
+                              "revenue":  3416.64
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1165,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  6,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  11,
+                              "revenue":  2749.2
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1178,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  19,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  16,
+                              "revenue":  4850.9599999999991
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1160,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  7,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  19,
+                              "revenue":  9005.760000000002
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1164,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  12,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  17,
+                              "revenue":  4246.95
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:30.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  1171,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "cart",
+                              "event_count":  4,
+                              "revenue":  0
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "purchase",
+                              "event_count":  2,
+                              "revenue":  248.51999999999998
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "event_type":  "view",
+                              "event_count":  344,
+                              "revenue":  0
+                          }
+                      ],
+    "brand_windows":  [
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "apple",
+                              "purchase_events":  5,
+                              "revenue":  1681.81
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "oasis",
+                              "purchase_events":  1,
+                              "revenue":  28.03
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "samsung",
+                              "purchase_events":  1,
+                              "revenue":  130.76
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "santeri",
+                              "purchase_events":  1,
+                              "revenue":  54.42
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "vivo",
+                              "purchase_events":  1,
+                              "revenue":  463.31
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:38:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "xiaomi",
+                              "purchase_events":  1,
+                              "revenue":  29.51
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "apple",
+                              "purchase_events":  6,
+                              "revenue":  4973.45
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "cordiant",
+                              "purchase_events":  1,
+                              "revenue":  42.99
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "epson",
+                              "purchase_events":  1,
+                              "revenue":  116.73
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "ersport",
+                              "purchase_events":  1,
+                              "revenue":  35.78
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "hp",
+                              "purchase_events":  1,
+                              "revenue":  320.35
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "huawei",
+                              "purchase_events":  1,
+                              "revenue":  111.82
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "jbl",
+                              "purchase_events":  1,
+                              "revenue":  20.57
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "omron",
+                              "purchase_events":  1,
+                              "revenue":  62.52
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "pdw",
+                              "purchase_events":  1,
+                              "revenue":  391.26
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "ritmix",
+                              "purchase_events":  1,
+                              "revenue":  3.37
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "samsung",
+                              "purchase_events":  8,
+                              "revenue":  2114.1799999999994
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "sho-me",
+                              "purchase_events":  1,
+                              "revenue":  141.86
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "tefal",
+                              "purchase_events":  1,
+                              "revenue":  38.59
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "unknown",
+                              "purchase_events":  4,
+                              "revenue":  425.24
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:39:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "xiaomi",
+                              "purchase_events":  2,
+                              "revenue":  52.64
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "apple",
+                              "purchase_events":  5,
+                              "revenue":  3431.36
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "huawei",
+                              "purchase_events":  1,
+                              "revenue":  177.2
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "jaguar",
+                              "purchase_events":  1,
+                              "revenue":  164.2
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "kingston",
+                              "purchase_events":  1,
+                              "revenue":  66.67
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "luminarc",
+                              "purchase_events":  1,
+                              "revenue":  39.64
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "nokia",
+                              "purchase_events":  1,
+                              "revenue":  43.66
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "philips",
+                              "purchase_events":  1,
+                              "revenue":  120.95
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "ritmix",
+                              "purchase_events":  1,
+                              "revenue":  0.88
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "samsung",
+                              "purchase_events":  6,
+                              "revenue":  1526.5900000000001
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "shimano",
+                              "purchase_events":  1,
+                              "revenue":  95.21
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "triangle",
+                              "purchase_events":  1,
+                              "revenue":  38.35
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "unknown",
+                              "purchase_events":  1,
+                              "revenue":  33.46
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:40:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "xiaomi",
+                              "purchase_events":  2,
+                              "revenue":  427.67
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "alteco",
+                              "purchase_events":  1,
+                              "revenue":  45.82
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "apple",
+                              "purchase_events":  8,
+                              "revenue":  8353.7200000000012
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "asus",
+                              "purchase_events":  1,
+                              "revenue":  879.96
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "huawei",
+                              "purchase_events":  1,
+                              "revenue":  258.21
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "karya",
+                              "purchase_events":  1,
+                              "revenue":  100.39
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "lg",
+                              "purchase_events":  1,
+                              "revenue":  308.65
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "montale",
+                              "purchase_events":  1,
+                              "revenue":  102.93
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "panasonic",
+                              "purchase_events":  2,
+                              "revenue":  200.37
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "samsung",
+                              "purchase_events":  9,
+                              "revenue":  2600.22
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "texet",
+                              "purchase_events":  1,
+                              "revenue":  17.48
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "transcend",
+                              "purchase_events":  1,
+                              "revenue":  5.12
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "unknown",
+                              "purchase_events":  2,
+                              "revenue":  240.94
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "wacom",
+                              "purchase_events":  1,
+                              "revenue":  78.51
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:41:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "xiaomi",
+                              "purchase_events":  5,
+                              "revenue":  664.4
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "acer",
+                              "purchase_events":  1,
+                              "revenue":  532.81
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "apple",
+                              "purchase_events":  1,
+                              "revenue":  975.57
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "casio",
+                              "purchase_events":  1,
+                              "revenue":  169.37
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "elenberg",
+                              "purchase_events":  1,
+                              "revenue":  17.99
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "granhel",
+                              "purchase_events":  1,
+                              "revenue":  36.04
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "huawei",
+                              "purchase_events":  1,
+                              "revenue":  124.84
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "lg",
+                              "purchase_events":  2,
+                              "revenue":  529.01
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "meizu",
+                              "purchase_events":  1,
+                              "revenue":  133.59
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "nokia",
+                              "purchase_events":  1,
+                              "revenue":  89.72
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "samsung",
+                              "purchase_events":  2,
+                              "revenue":  305.52
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "sony",
+                              "purchase_events":  1,
+                              "revenue":  326.62
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "unknown",
+                              "purchase_events":  5,
+                              "revenue":  1074.23
+                          },
+                          {
+                              "window_end":  "2026-11-13T13:42:00.0000000Z",
+                              "run_id":  "integration-261113",
+                              "brand":  "xiaomi",
+                              "purchase_events":  1,
+                              "revenue":  180.16
+                          }
+                      ],
+    "mock_kpis":  [
+                      {
+                          "total_events":  75567,
+                          "purchase_events":  1209,
+                          "view_events":  72520,
+                          "purchase_value":  369425
+                      }
+                  ],
+    "mock_brand_kpis":  [
+                            {
+                                "purchase_events":  1596,
+                                "purchase_value":  604038.99999999988
+                            }
+                        ],
+    "query_log":  [
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:44.7031904Z",
+                          "sql":  "SELECT USER_NAME() AS database_user, HAS_PERMS_BY_NAME(\u0027dbo.event_metrics_30s\u0027,\u0027OBJECT\u0027,\u0027SELECT\u0027) AS can_select, HAS_PERMS_BY_NAME(\u0027dbo.event_metrics_30s\u0027,\u0027OBJECT\u0027,\u0027INSERT\u0027) AS can_insert, HAS_PERMS_BY_NAME(\u0027dbo.event_metrics_30s\u0027,\u0027OBJECT\u0027,\u0027DELETE\u0027) AS can_delete",
+                          "status":  "pass",
+                          "rows":  1
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:44.9386131Z",
+                          "sql":  "SELECT TABLE_NAME,COLUMN_NAME,DATA_TYPE,IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=\u0027dbo\u0027 AND TABLE_NAME IN (\u0027event_metrics_30s\u0027,\u0027brand_sales_1m\u0027) ORDER BY TABLE_NAME,ORDINAL_POSITION",
+                          "status":  "pass",
+                          "rows":  10
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:45.3555584Z",
+                          "sql":  "SELECT run_id,COUNT_BIG(*) AS aggregate_rows,SUM(event_count) AS total_events,MIN(window_end) AS first_window_utc,MAX(window_end) AS last_window_utc FROM dbo.event_metrics_30s GROUP BY run_id ORDER BY run_id",
+                          "status":  "pass",
+                          "rows":  4
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:45.5760624Z",
+                          "sql":  "SELECT event_type,SUM(event_count) AS event_count,SUM(revenue) AS purchase_value FROM dbo.event_metrics_30s WHERE run_id=@run GROUP BY event_type ORDER BY event_type",
+                          "status":  "pass",
+                          "rows":  3
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:45.6767229Z",
+                          "sql":  "SELECT SUM(event_count) AS total_events,SUM(CASE WHEN event_type=\u0027purchase\u0027 THEN event_count ELSE 0 END) AS purchase_events,SUM(CASE WHEN event_type=\u0027view\u0027 THEN event_count ELSE 0 END) AS view_events,SUM(CASE WHEN event_type=\u0027cart\u0027 THEN event_count ELSE 0 END) AS cart_events,SUM(CASE WHEN event_type=\u0027remove_from_cart\u0027 THEN event_count ELSE 0 END) AS remove_events,SUM(CASE WHEN event_type=\u0027purchase\u0027 THEN revenue ELSE 0 END) AS purchase_value,1.0*SUM(CASE WHEN event_type=\u0027purchase\u0027 THEN event_count ELSE 0 END)/NULLIF(SUM(CASE WHEN event_type=\u0027view\u0027 THEN event_count ELSE 0 END),0) AS purchase_to_view_ratio FROM dbo.event_metrics_30s WHERE run_id=@run",
+                          "status":  "pass",
+                          "rows":  1
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:45.8449190Z",
+                          "sql":  "SELECT brand,SUM(purchase_events) AS purchase_events,SUM(revenue) AS purchase_value FROM dbo.brand_sales_1m WHERE run_id=@run GROUP BY brand ORDER BY purchase_value DESC,brand",
+                          "status":  "pass",
+                          "rows":  40
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:46.0140226Z",
+                          "sql":  "SELECT \u0027events_duplicate_keys\u0027 AS check_name,COUNT_BIG(*) AS issues FROM (SELECT window_end,run_id,event_type FROM dbo.event_metrics_30s WHERE run_id=@run GROUP BY window_end,run_id,event_type HAVING COUNT_BIG(*)\u003e1) d UNION ALL SELECT \u0027brands_duplicate_keys\u0027,COUNT_BIG(*) FROM (SELECT window_end,run_id,brand FROM dbo.brand_sales_1m WHERE run_id=@run GROUP BY window_end,run_id,brand HAVING COUNT_BIG(*)\u003e1) d UNION ALL SELECT \u0027events_invalid_values\u0027,COUNT_BIG(*) FROM dbo.event_metrics_30s WHERE run_id=@run AND (event_count\u003c0 OR revenue\u003c0 OR event_type NOT IN (\u0027view\u0027,\u0027cart\u0027,\u0027remove_from_cart\u0027,\u0027purchase\u0027) OR (event_type\u003c\u003e\u0027purchase\u0027 AND ABS(revenue)\u003e0.01)) UNION ALL SELECT \u0027brands_invalid_values\u0027,COUNT_BIG(*) FROM dbo.brand_sales_1m WHERE run_id=@run AND (purchase_events\u003c0 OR revenue\u003c0 OR brand=\u0027\u0027)",
+                          "status":  "pass",
+                          "rows":  4
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:46.2635849Z",
+                          "sql":  "SELECT window_end,run_id,event_type,event_count,revenue FROM dbo.event_metrics_30s WHERE run_id=@run ORDER BY window_end,event_type",
+                          "status":  "pass",
+                          "rows":  28
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:46.4086142Z",
+                          "sql":  "SELECT window_end,run_id,brand,purchase_events,revenue FROM dbo.brand_sales_1m WHERE run_id=@run ORDER BY window_end,brand",
+                          "status":  "pass",
+                          "rows":  61
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:46.5752885Z",
+                          "sql":  "SELECT SUM(event_count) AS total_events,SUM(CASE WHEN event_type=\u0027purchase\u0027 THEN event_count ELSE 0 END) AS purchase_events,SUM(CASE WHEN event_type=\u0027view\u0027 THEN event_count ELSE 0 END) AS view_events,SUM(CASE WHEN event_type=\u0027purchase\u0027 THEN revenue ELSE 0 END) AS purchase_value FROM dbo.event_metrics_30s WHERE run_id=\u0027mock-seed\u0027",
+                          "status":  "pass",
+                          "rows":  1
+                      },
+                      {
+                          "started_at_utc":  "2026-11-17T03:35:46.6856782Z",
+                          "sql":  "SELECT SUM(purchase_events) AS purchase_events,SUM(revenue) AS purchase_value FROM dbo.brand_sales_1m WHERE run_id=\u0027mock-seed\u0027",
+                          "status":  "pass",
+                          "rows":  1
+                      }
+                  ]
+}

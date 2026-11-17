@@ -1,0 +1,12 @@
+{
+  "status": "incomplete",
+  "schema_files_checked": 33,
+  "schema_files_total": 59,
+  "unavailable_schemas": {
+    "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json": "HTTP 404 at the declared schema URL"
+  },
+  "pages": 4,
+  "tables": 4,
+  "measures": 16,
+  "errors": []
+}

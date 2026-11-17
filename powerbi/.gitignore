@@ -1,0 +1,8 @@
+.pbi/
+**/.pbi/
+*.tmp
+__pycache__/
+.env*
+!*.example
+local-preview/
+evidence/local-check/

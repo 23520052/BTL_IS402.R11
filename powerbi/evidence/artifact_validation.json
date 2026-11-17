@@ -1,0 +1,82 @@
+{
+  "sales_dashboard.pbix": {
+    "bytes": 65090,
+    "sha256": "02ff8323d810aff7eaa7927d9c9f3f47ab0dd024c0437d6be8a9163e91c5e465",
+    "zip_integrity": "pass",
+    "pages": [
+      "overview",
+      "monitoring",
+      "brands",
+      "behavior"
+    ],
+    "has_data_model": true,
+    "page_refresh": {
+      "overview": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "refreshType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'APR'"
+                }
+              }
+            },
+            "duration": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PT30S'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "monitoring": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "refreshType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'APR'"
+                }
+              }
+            },
+            "duration": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PT30S'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "sales_dashboard_snapshot.pbix": {
+    "bytes": 75569,
+    "sha256": "3eeecb0450c402bdb83bcaa15dfcdd6f81556f962b882dad93d7082c8fa6d3d7",
+    "zip_integrity": "pass",
+    "pages": [
+      "overview",
+      "monitoring",
+      "brands",
+      "behavior"
+    ],
+    "has_data_model": true
+  }
+}

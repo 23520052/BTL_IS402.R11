@@ -1,0 +1,334 @@
+{
+  "compatibilityLevel": 1606,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"event_metrics_30s\", \"brand_sales_1m\", \"DimRun\", \"DimEvent\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "event_metrics_30s_run",
+        "fromColumn": "run_id",
+        "fromTable": "event_metrics_30s",
+        "toColumn": "run_id",
+        "toTable": "DimRun"
+      },
+      {
+        "name": "brand_sales_1m_run",
+        "fromColumn": "run_id",
+        "fromTable": "brand_sales_1m",
+        "toColumn": "run_id",
+        "toTable": "DimRun"
+      },
+      {
+        "name": "events_type",
+        "fromColumn": "event_type",
+        "fromTable": "event_metrics_30s",
+        "toColumn": "event_type",
+        "toTable": "DimEvent"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "event_metrics_30s",
+        "columns": [
+          {
+            "name": "window_end",
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd HH:mm:ss",
+            "lineageTag": "875b0dd3-b822-4639-9cf6-0cf8013978e8",
+            "sourceColumn": "window_end",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "run_id",
+            "dataType": "string",
+            "lineageTag": "ca6fce95-059a-4830-9931-fe9ab6677fc4",
+            "sourceColumn": "run_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "event_type",
+            "dataType": "string",
+            "lineageTag": "359c1d7f-8aae-4dec-a637-7b91cfb92676",
+            "sourceColumn": "event_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "event_count",
+            "dataType": "int64",
+            "lineageTag": "13dabce6-5efe-4c12-98df-731238603c9e",
+            "sourceColumn": "event_count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "revenue",
+            "dataType": "double",
+            "lineageTag": "5e0b9468-d9c7-4d1f-b4d8-be89a3bb824f",
+            "sourceColumn": "revenue",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "9f806382-6aa6-54f1-a243-c830f465ec7b",
+        "measures": [
+          {
+            "name": "Total Events",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "COALESCE(SUM('event_metrics_30s'[event_count]), 0)",
+            "formatString": "#,0",
+            "lineageTag": "760a5e8a-6a84-4b1e-aec6-6fdae2b5ef50"
+          },
+          {
+            "name": "Purchase Events",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"purchase\")",
+            "formatString": "#,0",
+            "lineageTag": "1926c36f-f096-44c0-b6a2-701b450b5217"
+          },
+          {
+            "name": "View Events",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"view\")",
+            "formatString": "#,0",
+            "lineageTag": "c45d5278-fd90-4873-b8e1-198bc21ad3ab"
+          },
+          {
+            "name": "Cart Events",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"cart\")",
+            "formatString": "#,0",
+            "lineageTag": "abd32c0a-a3e7-4a58-a328-dec6c94ff7b0"
+          },
+          {
+            "name": "Remove Events",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"remove_from_cart\")",
+            "formatString": "#,0",
+            "lineageTag": "71e292d8-06da-467b-841d-dcf4fdc0e33a"
+          },
+          {
+            "name": "Purchase Value",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "COALESCE(CALCULATE(SUM('event_metrics_30s'[revenue]), REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"purchase\"), 0)",
+            "formatString": "#,0.00",
+            "lineageTag": "4987598d-1f5e-470c-a312-15ec2722c33e"
+          },
+          {
+            "name": "Purchase To View Ratio",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "DIVIDE([Purchase Events], [View Events])",
+            "formatString": "0.00%",
+            "lineageTag": "0379cf78-3148-4822-9623-824e3674484c"
+          },
+          {
+            "name": "Cart To View Ratio",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "DIVIDE([Cart Events], [View Events])",
+            "formatString": "0.00%",
+            "lineageTag": "3eaba808-95bd-49d0-9940-fa7d580b49a4"
+          },
+          {
+            "name": "Brand Purchase Events",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "COALESCE(SUM('brand_sales_1m'[purchase_events]), 0)",
+            "formatString": "#,0",
+            "lineageTag": "132ee55f-af03-4302-9c07-781180da9937"
+          },
+          {
+            "name": "Brand Purchase Value",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "COALESCE(SUM('brand_sales_1m'[revenue]), 0)",
+            "formatString": "#,0.00",
+            "lineageTag": "fb137e58-3ae7-48f8-9b6e-270d7ee2b776"
+          },
+          {
+            "name": "Brand Value Share",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "DIVIDE([Brand Purchase Value], CALCULATE([Brand Purchase Value], ALLSELECTED('brand_sales_1m'[brand])))",
+            "formatString": "0.00%",
+            "lineageTag": "70838a12-095f-4f5a-89ba-a08761bebdfb"
+          },
+          {
+            "name": "Last Window UTC",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "MAX('event_metrics_30s'[window_end])",
+            "formatString": "yyyy-MM-dd HH:mm:ss",
+            "lineageTag": "442a9bbb-d1a4-46d3-ae3a-cbd9e77b62f1"
+          },
+          {
+            "name": "Window Age Seconds",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "VAR LastWindow = [Last Window UTC] RETURN IF(NOT ISBLANK(LastWindow), DATEDIFF(LastWindow, UTCNOW(), SECOND))",
+            "formatString": "#,0",
+            "lineageTag": "e65e5d5e-b41c-4f06-afd4-cfc4a1f97220"
+          },
+          {
+            "name": "Data Scope",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "VAR R = SELECTEDVALUE(DimRun[run_id]) RETURN IF(ISBLANK(R), \"MULTIPLE RUNS / select one run\", IF(R = \"mock-seed\", \"MOCK / simulated data\", \"RUN / \" & R))",
+            "lineageTag": "2af72342-775d-44c5-a2f0-d35bfe2ed6a0"
+          },
+          {
+            "name": "Events In Window",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "SUM('event_metrics_30s'[event_count])",
+            "formatString": "#,0",
+            "lineageTag": "a389e389-49b1-4413-8e35-106e81150d39"
+          },
+          {
+            "name": "Purchase Value In Window",
+            "displayFolder": "Sprint 1 KPI",
+            "expression": "CALCULATE(SUM('event_metrics_30s'[revenue]), REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"purchase\")",
+            "formatString": "#,0.00",
+            "lineageTag": "7554770e-12d3-4de9-b9f3-72d9005b34f8"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "event_metrics_30s",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"sqlsrv-sales-gr03-tram01.database.windows.net\", \"salesdb\"),",
+                "    Result = Source{[Schema=\"dbo\", Item=\"event_metrics_30s\"]}[Data]",
+                "in",
+                "    Result"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "brand_sales_1m",
+        "columns": [
+          {
+            "name": "window_end",
+            "dataType": "dateTime",
+            "formatString": "yyyy-MM-dd HH:mm:ss",
+            "lineageTag": "dcf30e32-0ad7-41d2-84aa-2408edb5d7a3",
+            "sourceColumn": "window_end",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "run_id",
+            "dataType": "string",
+            "lineageTag": "f1c3fd43-6bb8-493d-aa6a-a019d7eb7ea8",
+            "sourceColumn": "run_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "brand",
+            "dataType": "string",
+            "lineageTag": "109b93e3-11af-4021-a3fb-db3a4a32a347",
+            "sourceColumn": "brand",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "purchase_events",
+            "dataType": "int64",
+            "lineageTag": "14890f02-5153-454d-8a84-9ee5e63d0d3a",
+            "sourceColumn": "purchase_events",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "revenue",
+            "dataType": "double",
+            "lineageTag": "d23ea232-7779-4f46-8248-4eef73674fce",
+            "sourceColumn": "revenue",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "23f1be4c-cc66-593b-8b40-718d6fa74a88",
+        "partitions": [
+          {
+            "name": "brand_sales_1m",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"sqlsrv-sales-gr03-tram01.database.windows.net\", \"salesdb\"),",
+                "    Result = Source{[Schema=\"dbo\", Item=\"brand_sales_1m\"]}[Data]",
+                "in",
+                "    Result"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimRun",
+        "columns": [
+          {
+            "name": "run_id",
+            "dataType": "string",
+            "lineageTag": "68c91607-b83d-4d45-b8f5-2c311cfc86b3",
+            "sourceColumn": "run_id",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "a352c75b-6667-5f61-8d72-8061f2957a7a",
+        "partitions": [
+          {
+            "name": "DimRun",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"sqlsrv-sales-gr03-tram01.database.windows.net\", \"salesdb\"),",
+                "    Result = Table.Distinct(Table.SelectColumns(Source{[Schema=\"dbo\", Item=\"event_metrics_30s\"]}[Data], {\"run_id\"}))",
+                "in",
+                "    Result"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimEvent",
+        "columns": [
+          {
+            "name": "event_type",
+            "dataType": "string",
+            "lineageTag": "de965bce-7b0b-444b-a009-43e5488e9beb",
+            "sourceColumn": "event_type",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "81cde040-ad89-5c76-bee1-e4e2d2c01755",
+        "partitions": [
+          {
+            "name": "DimEvent",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"sqlsrv-sales-gr03-tram01.database.windows.net\", \"salesdb\"),",
+                "    Result = Table.Distinct(Table.SelectColumns(Source{[Schema=\"dbo\", Item=\"event_metrics_30s\"]}[Data], {\"event_type\"}))",
+                "in",
+                "    Result"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

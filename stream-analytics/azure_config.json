@@ -1,0 +1,87 @@
+{
+  "document_type": "configuration_record",
+  "prepared_on": "2026-11-19",
+  "automatic_deployment": false,
+  "configuration_source": "Azure Portal screenshots retained from implementation and live tests",
+  "subscription": {
+    "name": "Azure for Students",
+    "id": "876b8fe0-23e5-45a7-881f-56affa076767"
+  },
+  "resource_group": "rg-sales-stream-gr03",
+  "location": "eastasia",
+  "event_hubs": {
+    "namespace": "evhns-sales-gr03-1110",
+    "hostname": "evhns-sales-gr03-1110.servicebus.windows.net",
+    "sku_observed": "Standard",
+    "throughput_units_observed": 1,
+    "auto_inflate_enabled_observed": false,
+    "event_hub": {
+      "name": "sales-events",
+      "partition_count": 2,
+      "cleanup_policy": "Delete",
+      "retention_hours": null,
+      "capture_enabled": null
+    },
+    "consumer_group": "cg-asa-sales",
+    "producer_policy": {
+      "name": "producer-send",
+      "rights": ["Send"]
+    }
+  },
+  "stream_analytics": {
+    "job_name": "asa-sales-gr03",
+    "hosting_environment": "Cloud",
+    "pricing_plan_observed": "StandardV2",
+    "streaming_units": null,
+    "compatibility_level": null,
+    "identity_type": "SystemAssigned",
+    "event_hubs_data_role": "Azure Event Hubs Data Receiver",
+    "input": {
+      "alias": "eh-sales",
+      "source_type": "EventHub",
+      "namespace": "evhns-sales-gr03-1110",
+      "event_hub_name": "sales-events",
+      "consumer_group": "cg-asa-sales",
+      "authentication_mode": "SystemAssignedManagedIdentity",
+      "serialization_format": "JSON",
+      "encoding": "UTF-8",
+      "partition_key": null
+    },
+    "query_file": "queries.sql",
+    "timestamp_field": "stream_event_time",
+    "event_ordering": {
+      "late_arrival_tolerance_seconds": 10,
+      "out_of_order_tolerance_seconds": 5,
+      "action": "Drop"
+    },
+    "output_error_policy": "Retry",
+    "outputs": [
+      {
+        "alias": "sql-event-metrics",
+        "type": "SQLDatabase",
+        "table": "dbo.event_metrics_30s",
+        "window_seconds": 30,
+        "group_keys": ["run_id", "event_type"]
+      },
+      {
+        "alias": "sql-brand-sales",
+        "type": "SQLDatabase",
+        "table": "dbo.brand_sales_1m",
+        "window_seconds": 60,
+        "group_keys": ["run_id", "brand"],
+        "event_type_filter": "purchase"
+      }
+    ]
+  },
+  "sql_database": {
+    "server": "sqlsrv-sales-gr03-tram01.database.windows.net",
+    "database": "salesdb",
+    "authentication_mode": "SqlServerAuthentication",
+    "username": "asa_writer",
+    "tier_observed_during_initial_setup": "Basic",
+    "dtu_observed_during_initial_setup": 5,
+    "revenue_data_type": "FLOAT"
+  },
+  "supported_event_types": ["view", "cart", "purchase"],
+  "evidence_directory": "../evidence/stream-analytics"
+}

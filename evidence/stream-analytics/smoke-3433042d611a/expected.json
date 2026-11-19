@@ -1,0 +1,12 @@
+{
+  "run_id": "smoke-3433042d611a",
+  "base_utc": "2026-11-11T15:51:00.000Z",
+  "window_30s_first_end": "2026-11-11T15:51:30.000Z",
+  "window_1m_end": "2026-11-11T15:52:00.000Z",
+  "input_count": 8,
+  "metrics_rows": 5,
+  "brand_rows": 3,
+  "purchase_events": 4,
+  "revenue": 650.0,
+  "live_send_requested": true
+}

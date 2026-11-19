@@ -55,6 +55,12 @@ try {
     if ($RunId -eq 'integration-261113' -and ($k.total_events -ne 10000 -or $k.purchase_events -ne 118 -or [Math]::Abs($k.purchase_value-35757.22) -gt 0.01)) { throw 'Integration run does not match the saved 10,000-event handoff.' }
     if ($k.total_events -le 0) { throw 'Selected run has no event data.' }
     if ($RunId -ne 'mock-seed' -and ($k.purchase_events -ne $k.brand_purchase_events -or [Math]::Abs($k.purchase_value-$k.brand_purchase_value) -gt 0.01)) { throw 'Selected run cross-table KPI reconciliation failed.' }
+    $eventDuplicates = @($results.events | Group-Object window_end,run_id,event_type | Where-Object Count -gt 1)
+    $brandDuplicates = @($results.brand_windows | Group-Object window_end,run_id,brand | Where-Object Count -gt 1)
+    $invalidEvents = @($results.events | Where-Object { $_.event_count -lt 0 -or $_.revenue -lt 0 -or $_.event_type -notin @('view','cart','remove_from_cart','purchase') -or ($_.event_type -ne 'purchase' -and [Math]::Abs($_.revenue) -gt 0.01) })
+    $invalidBrands = @($results.brand_windows | Where-Object { $_.purchase_events -lt 0 -or $_.revenue -lt 0 -or [string]::IsNullOrWhiteSpace($_.brand) })
+    $results.integrity = [ordered]@{event_duplicate_grains=$eventDuplicates.Count; brand_duplicate_grains=$brandDuplicates.Count; invalid_event_rows=$invalidEvents.Count; invalid_brand_rows=$invalidBrands.Count}
+    if ($eventDuplicates.Count -or $brandDuplicates.Count -or $invalidEvents.Count -or $invalidBrands.Count) { throw 'Aggregate grain or value integrity failed.' }
     if ($results.event_filter_test[0].total_events -ne $k.view_events -or $results.event_filter_test[0].purchase_events -ne $k.purchase_events) { throw 'Event slicer semantics failed.' }
     if ($results.empty_test[0].total_events -ne 0 -or $results.empty_test[0].purchase_value -ne 0 -or $null -ne $results.empty_test[0].ratio -or $null -ne $results.empty_test[0].last_window) { throw 'Empty-run behavior failed.' }
     $results.status = 'pass'

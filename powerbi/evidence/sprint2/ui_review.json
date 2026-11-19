@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-11-17T17:17:31.215Z",
+  "artifact": "powerbi/sales_dashboard.pbix",
+  "run_id": "integration-261117",
+  "desktop_pages_observed": [
+    "Sales Overview",
+    "Real-time Monitoring",
+    "Brand Performance",
+    "Customer Behavior"
+  ],
+  "mobile_scope": "Power BI Desktop phone layout editor, four pages; no physical device or Service test",
+  "rls_scope": "Desktop View as Manager and Brand Analyst plus ADOMD Roles tests",
+  "apr_scope": "Age reevaluated after 30 seconds on completed run; live ingestion pending",
+  "event_filter_scope": "UI view filter gives Total 9785 and Purchase 118",
+  "page_navigator_ctrl_click": "Not verified by automation; page tabs verified",
+  "pbix_reopened": true,
+  "mobile_review": {
+    "checked_at_utc": "2026-11-18T16:45:28.787081+00:00",
+    "artifact_sha256": "1d722111d99f8071373ef942c887b351edefc9d857d9589b1065f780ebf97d13",
+    "method": "Power BI Desktop mobile layout preview; delivery PBIX reopened",
+    "pages": 4,
+    "visuals": 44,
+    "navigation": "2x2 grid; 100px container",
+    "cards": "Two columns, 150px wide; timestamps full width",
+    "brand_table_columns_px": [
+      72,
+      58,
+      88,
+      68
+    ],
+    "content_height_px": {
+      "overview": 1040,
+      "monitoring": 1064,
+      "brands": 1124,
+      "behavior": 1060
+    },
+    "screenshots": "mobile_*_top.png and mobile_*_kpis.png; second image now covers charts/table",
+    "physical_phone_tested": false
+  }
+}

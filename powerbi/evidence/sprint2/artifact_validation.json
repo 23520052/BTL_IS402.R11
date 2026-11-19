@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-11-18T16:45:28.933817+00:00",
+  "file": "sales_dashboard.pbix",
+  "sha256": "1d722111d99f8071373ef942c887b351edefc9d857d9589b1065f780ebf97d13",
+  "bytes": 90136,
+  "pages": 4,
+  "mobile_visuals": 44,
+  "report_definitions_match_source": true,
+  "semantic_model_security_validation": "See rls_validation.json from the reopened PBIX engine; binary DataModel is not decoded here.",
+  "status": "pass",
+  "errors": []
+}

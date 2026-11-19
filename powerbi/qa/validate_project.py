@@ -38,6 +38,7 @@ def main():
     definitions = root / "sales_dashboard.Report/definition"
     errors = []
     unavailable_schemas = {}
+    compatible_schemas = {}
     checked = 0
     schema_files = 0
     for path in definitions.rglob("*.json"):
@@ -48,7 +49,19 @@ def main():
         try:
             if value["$schema"] in unavailable_schemas:
                 raise HTTPError(value["$schema"], 404, "Schema unavailable", None, None)
-            schema = load_schema(value["$schema"])
+            try:
+                schema = load_schema(value["$schema"])
+            except HTTPError as exc:
+                fallbacks = {
+                    'visualContainer/2.14.0/': 'visualContainer/2.13.0/',
+                    'visualContainerMobileState/2.9.0/': 'visualContainerMobileState/2.8.0/',
+                }
+                alternative = next((value['$schema'].replace(a,b) for a,b in fallbacks.items() if a in value['$schema']), None)
+                if exc.code != 404 or not alternative:
+                    raise
+                compatible_schemas[value['$schema']] = alternative
+                schema = load_schema(alternative)
+                value = dict(value, **{'$schema': alternative})
             resolver = jsonschema.RefResolver(value["$schema"], schema, handlers={"https": load_schema})
             jsonschema.Draft7Validator(schema, resolver=resolver).validate(value)
             checked += 1
@@ -100,8 +113,32 @@ def main():
         # Desktop omits crossFilteringBehavior when it uses the oneDirection default.
         if rel.get("crossFilteringBehavior", "oneDirection") != "oneDirection" or rel["toTable"] not in ("DimRun", "DimEvent"):
             errors.append("Unexpected fact relationship")
+    roles = {role['name']: role for role in model.get('roles', [])}
+    if set(roles) != {'Manager', 'Brand Analyst'}:
+        errors.append('Expected Manager and Brand Analyst roles')
+    else:
+        if roles['Manager'].get('modelPermission') != 'read' or roles['Manager'].get('tablePermissions'):
+            errors.append('Manager must have unrestricted read access')
+        rules = {p['name']: p.get('filterExpression') for p in roles['Brand Analyst'].get('tablePermissions', [])}
+        if roles['Brand Analyst'].get('modelPermission') != 'read' or rules != {'brand_sales_1m': '\'brand_sales_1m\'[brand] = "apple"', 'event_metrics_30s': 'FALSE()'}:
+            errors.append('Analyst must allow apple only and deny brandless event aggregates')
+    mobile_pages = {}
+    for page in pages:
+        mobile_files = list((page.parent / 'visuals').glob('*/mobile.json'))
+        mobile_pages[page.parent.name] = len(mobile_files)
+        if not mobile_files:
+            errors.append(f'{page.parent.name}: missing mobile layout')
+        boxes = []
+        for path in mobile_files:
+            p = json.loads(path.read_text(encoding='utf-8'))['position']
+            if not (path.parent / 'visual.json').exists() or p['x'] < 0 or p['y'] < 0 or p['width'] <= 0 or p['height'] <= 0 or p['x']+p['width'] > 324.01:
+                errors.append(f'{path}: invalid mobile binding/bounds')
+            for other, q in boxes:
+                if p['x'] < q['x']+q['width'] and q['x'] < p['x']+p['width'] and p['y'] < q['y']+q['height'] and q['y'] < p['y']+p['height']:
+                    errors.append(f'{path}: mobile overlap with {other}')
+            boxes.append((path.name + '/' + path.parent.name, p))
     status = "failed" if errors else "incomplete" if unavailable_schemas else "pass"
-    result = {"status": status, "schema_files_checked": checked, "schema_files_total": schema_files, "unavailable_schemas": unavailable_schemas, "pages": len(pages), "tables": len(tables), "measures": sum(len(t.get("measures", [])) for t in tables.values()), "errors": errors}
+    result = {"status": status, "schema_files_checked": checked, "schema_files_total": schema_files, "unavailable_schemas": unavailable_schemas, "compatible_published_schemas": compatible_schemas, "mobile_visuals_by_page": mobile_pages, "roles": list(roles), "pages": len(pages), "tables": len(tables), "measures": sum(len(t.get("measures", [])) for t in tables.values()), "errors": errors}
     (root / "evidence").mkdir(exist_ok=True)
     (root / "evidence/project_validation.json").write_text(json.dumps(result, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))

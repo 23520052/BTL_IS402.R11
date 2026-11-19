@@ -1,0 +1,68 @@
+{
+  "checked_at_utc": "2026-11-18T16:44:22.9819273Z",
+  "run_id": "integration-261117",
+  "method": "ADOMD Roles connection property / Desktop",
+  "status": "pass",
+  "tests": [
+    {
+      "name": "Manager can read both facts",
+      "pass": true,
+      "actual": {
+        "events": 10000,
+        "purchase": 118,
+        "value": 35757.22,
+        "brand_events": 118,
+        "brand_value": 35757.22
+      }
+    },
+    {
+      "name": "Allowed brand fixture exists",
+      "pass": true,
+      "actual": {
+        "count": 25,
+        "value": 19415.91
+      }
+    },
+    {
+      "name": "Analyst sees only allowed-brand totals",
+      "pass": true,
+      "actual": {
+        "events": 0,
+        "purchase": 0,
+        "value": 0,
+        "brand_events": 25,
+        "brand_value": 19415.91
+      }
+    },
+    {
+      "name": "Brandless event aggregate is denied",
+      "pass": true,
+      "actual": {
+        "events": 0,
+        "purchase": 0,
+        "value": 0,
+        "brand_events": 25,
+        "brand_value": 19415.91
+      }
+    },
+    {
+      "name": "Slicer and raw brand rows contain only apple",
+      "pass": true,
+      "actual": [
+        {
+          "brand": "apple"
+        }
+      ]
+    },
+    {
+      "name": "Removing filters cannot expose forbidden brand or event rows",
+      "pass": true,
+      "actual": {
+        "forbidden": 0,
+        "raw_event_rows": null
+      }
+    }
+  ],
+  "artifact": "powerbi/sales_dashboard.pbix",
+  "artifact_sha256": "1d722111d99f8071373ef942c887b351edefc9d857d9589b1065f780ebf97d13"
+}

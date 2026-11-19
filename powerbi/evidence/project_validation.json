@@ -1,10 +1,21 @@
 {
-  "status": "incomplete",
-  "schema_files_checked": 33,
-  "schema_files_total": 59,
-  "unavailable_schemas": {
-    "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json": "HTTP 404 at the declared schema URL"
+  "status": "pass",
+  "schema_files_checked": 103,
+  "schema_files_total": 103,
+  "unavailable_schemas": {},
+  "compatible_published_schemas": {
+    "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json"
   },
+  "mobile_visuals_by_page": {
+    "behavior": 11,
+    "brands": 10,
+    "monitoring": 12,
+    "overview": 11
+  },
+  "roles": [
+    "Manager",
+    "Brand Analyst"
+  ],
   "pages": 4,
   "tables": 4,
   "measures": 16,

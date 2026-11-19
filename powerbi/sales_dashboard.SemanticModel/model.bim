@@ -40,6 +40,26 @@
         "toTable": "DimEvent"
       }
     ],
+    "roles": [
+      {
+        "name": "Manager",
+        "modelPermission": "read"
+      },
+      {
+        "name": "Brand Analyst",
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "brand_sales_1m",
+            "filterExpression": "'brand_sales_1m'[brand] = \"apple\""
+          },
+          {
+            "name": "event_metrics_30s",
+            "filterExpression": "FALSE()"
+          }
+        ]
+      }
+    ],
     "sourceQueryCulture": "en-US",
     "tables": [
       {
@@ -86,111 +106,111 @@
         "measures": [
           {
             "name": "Total Events",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "COALESCE(SUM('event_metrics_30s'[event_count]), 0)",
             "formatString": "#,0",
             "lineageTag": "760a5e8a-6a84-4b1e-aec6-6fdae2b5ef50"
           },
           {
             "name": "Purchase Events",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"purchase\")",
             "formatString": "#,0",
             "lineageTag": "1926c36f-f096-44c0-b6a2-701b450b5217"
           },
           {
             "name": "View Events",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"view\")",
             "formatString": "#,0",
             "lineageTag": "c45d5278-fd90-4873-b8e1-198bc21ad3ab"
           },
           {
             "name": "Cart Events",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"cart\")",
             "formatString": "#,0",
             "lineageTag": "abd32c0a-a3e7-4a58-a328-dec6c94ff7b0"
           },
           {
             "name": "Remove Events",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "CALCULATE([Total Events], REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"remove_from_cart\")",
             "formatString": "#,0",
             "lineageTag": "71e292d8-06da-467b-841d-dcf4fdc0e33a"
           },
           {
             "name": "Purchase Value",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "COALESCE(CALCULATE(SUM('event_metrics_30s'[revenue]), REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"purchase\"), 0)",
             "formatString": "#,0.00",
             "lineageTag": "4987598d-1f5e-470c-a312-15ec2722c33e"
           },
           {
             "name": "Purchase To View Ratio",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "DIVIDE([Purchase Events], [View Events])",
             "formatString": "0.00%",
             "lineageTag": "0379cf78-3148-4822-9623-824e3674484c"
           },
           {
             "name": "Cart To View Ratio",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "DIVIDE([Cart Events], [View Events])",
             "formatString": "0.00%",
             "lineageTag": "3eaba808-95bd-49d0-9940-fa7d580b49a4"
           },
           {
             "name": "Brand Purchase Events",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "COALESCE(SUM('brand_sales_1m'[purchase_events]), 0)",
             "formatString": "#,0",
             "lineageTag": "132ee55f-af03-4302-9c07-781180da9937"
           },
           {
             "name": "Brand Purchase Value",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "COALESCE(SUM('brand_sales_1m'[revenue]), 0)",
             "formatString": "#,0.00",
             "lineageTag": "fb137e58-3ae7-48f8-9b6e-270d7ee2b776"
           },
           {
             "name": "Brand Value Share",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "DIVIDE([Brand Purchase Value], CALCULATE([Brand Purchase Value], ALLSELECTED('brand_sales_1m'[brand])))",
             "formatString": "0.00%",
             "lineageTag": "70838a12-095f-4f5a-89ba-a08761bebdfb"
           },
           {
             "name": "Last Window UTC",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "MAX('event_metrics_30s'[window_end])",
             "formatString": "yyyy-MM-dd HH:mm:ss",
             "lineageTag": "442a9bbb-d1a4-46d3-ae3a-cbd9e77b62f1"
           },
           {
             "name": "Window Age Seconds",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "VAR LastWindow = [Last Window UTC] RETURN IF(NOT ISBLANK(LastWindow), DATEDIFF(LastWindow, UTCNOW(), SECOND))",
             "formatString": "#,0",
             "lineageTag": "e65e5d5e-b41c-4f06-afd4-cfc4a1f97220"
           },
           {
             "name": "Data Scope",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "VAR R = SELECTEDVALUE(DimRun[run_id]) RETURN IF(ISBLANK(R), \"MULTIPLE RUNS / select one run\", IF(R = \"mock-seed\", \"MOCK / simulated data\", \"RUN / \" & R))",
             "lineageTag": "2af72342-775d-44c5-a2f0-d35bfe2ed6a0"
           },
           {
             "name": "Events In Window",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "SUM('event_metrics_30s'[event_count])",
             "formatString": "#,0",
             "lineageTag": "a389e389-49b1-4413-8e35-106e81150d39"
           },
           {
             "name": "Purchase Value In Window",
-            "displayFolder": "Sprint 1 KPI",
+            "displayFolder": "Dashboard KPI",
             "expression": "CALCULATE(SUM('event_metrics_30s'[revenue]), REMOVEFILTERS(DimEvent), 'event_metrics_30s'[event_type] = \"purchase\")",
             "formatString": "#,0.00",
             "lineageTag": "7554770e-12d3-4de9-b9f3-72d9005b34f8"

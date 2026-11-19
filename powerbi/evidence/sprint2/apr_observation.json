@@ -1,0 +1,12 @@
+{
+  "method": "Desktop UI observed without refresh or input between screenshots",
+  "first": {
+    "observed_at_utc": "2026-11-17T17:14:06.018Z",
+    "text": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1159 combo box (settable, string) run_id Value: integration-261117 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1101 image (graphic) Total Events 10,000.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1109 image (graphic) Last Window UTC 2026-11-17 07:30:30.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1113 image (graphic) Window Age Seconds 35,007."
+  },
+  "second": {
+    "observed_at_utc": "2026-11-17T17:14:38.930Z",
+    "text": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1159 combo box (settable, string) run_id Value: integration-261117 \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1101 image (graphic) Total Events 10,000.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1109 image (graphic) Last Window UTC 2026-11-17 07:30:30.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t1113 image (graphic) Window Age Seconds 35,037."
+  },
+  "interpretation": "Window Age changed while count/window stayed fixed on a completed historical run. This does not prove new streaming data or end-to-end latency."
+}

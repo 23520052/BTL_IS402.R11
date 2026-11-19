@@ -1,0 +1,49 @@
+{
+  "recorded_at_utc": "2026-11-19T08:48:05Z",
+  "method": "Power BI Service UI; report navigation, slicers and Security > Test as role",
+  "workspace": "Sales-Cloud",
+  "report": "sales_dashboard",
+  "report_url": "https://app.powerbi.com/groups/d8261592-aac7-4470-8e65-fc510d3e809d/reports/aba269e8-a319-4cee-a55b-bdb1ddfdebed/monitoring?experience=power-bi",
+  "semantic_model_id": "6b720a91-a1c1-4ae0-a898-4256e65e9139",
+  "security_url": "https://app.powerbi.com/groups/d8261592-aac7-4470-8e65-fc510d3e809d/rowlevelsecurity/12844392?experience=power-bi",
+  "run_id": "integration-261117",
+  "published_report": {
+    "pages_observed": ["Sales Overview", "Real-time Monitoring", "Brand Performance", "Customer Behavior"],
+    "page_navigator_and_run_sync": "pass",
+    "total_events": 10000,
+    "view_events": 9785,
+    "cart_events": 97,
+    "remove_events": 0,
+    "purchase_events": 118,
+    "purchase_value": 35757.22,
+    "purchase_to_view_display": "1.21%",
+    "view_slicer": {"total_events": 9785, "purchase_events": 118},
+    "apple_slicer": {"purchase_events": 25, "purchase_value": 19415.91}
+  },
+  "test_as_role": {
+    "Brand Analyst": {
+      "status": "pass",
+      "brand_slicer_options": ["apple"],
+      "brand_purchase_events": 25,
+      "brand_purchase_value": 19415.91,
+      "brand_value_share_display": "100.00%",
+      "monitoring_total_events": 0,
+      "monitoring_purchase_events": 0,
+      "last_window_display": "(Blank)",
+      "window_age_display": "(Blank)"
+    },
+    "Manager": {
+      "status": "pass",
+      "multiple_brands_visible": true,
+      "brand_purchase_events": 118,
+      "brand_purchase_value": 35757.22,
+      "brand_value_share_display": "100.00%",
+      "monitoring_total_events": 10000,
+      "monitoring_purchase_events": 118,
+      "last_window_utc": "2026-11-17T07:30:30Z"
+    }
+  },
+  "assigned_members_observed": {"Brand Analyst": 0, "Manager": 0},
+  "not_verified": ["Separate Viewer account with assigned role", "Physical phone / Power BI Mobile", "Live ingestion E2E", "Automatic Page Refresh interval on Service", "REMOVEFILTERS bypass queries on Service"],
+  "permissions_changed": false
+}

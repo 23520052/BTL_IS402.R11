@@ -14,3 +14,5 @@ Luồng dữ liệu: CSV → Python Producer → Azure Event Hubs → Azure Stre
 | Báo cáo đồ án | [Tài liệu báo cáo](docs/project_report/) |
 
 Để xem dashboard offline, mở [sales_dashboard_snapshot.pbix](powerbi/sales_dashboard_snapshot.pbix). Bản DirectQuery và hướng dẫn kiểm thử nằm trong [powerbi/](powerbi/README.md).
+
+Sprint 2 của TV4: [RLS/mobile](powerbi/rls_mobile.md), [kết quả nghiệm thu](powerbi/evidence/sprint2/README.md), [báo cáo Power BI/QA](docs/project_report/04_powerbi_qa.md) và [nội dung slide TV4](docs/project_report/04_powerbi_slides.md).

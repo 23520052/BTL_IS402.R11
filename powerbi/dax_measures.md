@@ -1,4 +1,4 @@
-# DAX measures — Sprint 1 / TV4
+# DAX measures
 
 ## Total Events
 

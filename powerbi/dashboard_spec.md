@@ -1,4 +1,4 @@
-# Thiết kế dashboard Power BI — Sprint 1
+# Thiết kế dashboard Power BI
 
 ## Dữ liệu và mô hình
 
@@ -44,6 +44,6 @@ Overview và Monitoring cấu hình APR 30 giây, đã kiểm trong UI và lưu 
 
 Tài liệu Microsoft: [PBIP report definition](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-report), [semantic model TMSL](https://learn.microsoft.com/en-us/power-bi/developer/projects/projects-dataset), [Automatic Page Refresh](https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-automatic-page-refresh).
 
-RLS, mobile và publish Power BI Service nằm ngoài phạm vi triển khai Sprint 1.
+Manager đọc mọi dữ liệu; Brand Analyst đọc Apple trong fact brand và bị chặn fact event không có brand. Cả bốn trang có mobile layout. Chi tiết và phạm vi kiểm thử tại [RLS/mobile](rls_mobile.md).
 
 Trend giữ BLANK ở cửa sổ không có dữ liệu của run đang chọn để không vẽ thêm các điểm 0 thuộc run khác.
